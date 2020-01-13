@@ -5,9 +5,9 @@ HBO NOW UI's
 
 ### Registration
 
-![HBO NOW Registration](https://imgur.com/a/DdIvdYv)
+![HBO NOW Registration](https://i.imgur.com/TxMJyIC.png)
 
 
 ### Sign In
 
-![HBO NOW Sign In](https://imgur.com/a/eglx0Og)
+![HBO NOW Sign In](https://i.imgur.com/m6KImpm.png)
