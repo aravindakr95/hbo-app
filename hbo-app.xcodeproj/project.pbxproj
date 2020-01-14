@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		70584EF523CCEF3C00FA48EA /* ViewControllerLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70584EF423CCEF3C00FA48EA /* ViewControllerLogin.swift */; };
-		70584EF923CD0F0D00FA48EA /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 70584EF723CD0F0D00FA48EA /* login.png */; };
-		70584EFA23CD0F0D00FA48EA /* registration.png in Resources */ = {isa = PBXBuildFile; fileRef = 70584EF823CD0F0D00FA48EA /* registration.png */; };
 		70590C1223CB81CB0072208C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70590C1123CB81CB0072208C /* AppDelegate.swift */; };
 		70590C1423CB81CB0072208C /* ViewControllerRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70590C1323CB81CB0072208C /* ViewControllerRegister.swift */; };
 		70590C1723CB81CB0072208C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70590C1523CB81CB0072208C /* Main.storyboard */; };
@@ -44,8 +42,6 @@
 
 /* Begin PBXFileReference section */
 		70584EF423CCEF3C00FA48EA /* ViewControllerLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLogin.swift; sourceTree = "<group>"; };
-		70584EF723CD0F0D00FA48EA /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login.png; path = ../../../../login.png; sourceTree = "<group>"; };
-		70584EF823CD0F0D00FA48EA /* registration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = registration.png; path = ../../../../registration.png; sourceTree = "<group>"; };
 		70590C0E23CB81CB0072208C /* hbo-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hbo-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70590C1123CB81CB0072208C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70590C1323CB81CB0072208C /* ViewControllerRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRegister.swift; sourceTree = "<group>"; };
@@ -92,19 +88,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		70584EF623CD0E7000FA48EA /* screenshots */ = {
-			isa = PBXGroup;
-			children = (
-				70584EF723CD0F0D00FA48EA /* login.png */,
-				70584EF823CD0F0D00FA48EA /* registration.png */,
-			);
-			path = screenshots;
-			sourceTree = "<group>";
-		};
 		70590C0523CB81CB0072208C = {
 			isa = PBXGroup;
 			children = (
-				70584EF623CD0E7000FA48EA /* screenshots */,
 				70590C3F23CB8D600072208C /* custom-views */,
 				70590C1023CB81CB0072208C /* hbo-app */,
 				70590C2523CB81CF0072208C /* hbo-appTests */,
@@ -273,10 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				70590C1C23CB81CF0072208C /* LaunchScreen.storyboard in Resources */,
-				70584EF923CD0F0D00FA48EA /* login.png in Resources */,
 				70590C1923CB81CF0072208C /* Assets.xcassets in Resources */,
 				70590C1723CB81CB0072208C /* Main.storyboard in Resources */,
-				70584EFA23CD0F0D00FA48EA /* registration.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
