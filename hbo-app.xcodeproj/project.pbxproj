@@ -88,10 +88,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		701C9AD323D08FA9004C18D1 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				70590C1323CB81CB0072208C /* ViewControllerRegister.swift */,
+				70584EF423CCEF3C00FA48EA /* ViewControllerLogin.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		701C9AD423D09161004C18D1 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				70590C4023CB8D930072208C /* HBOButton.swift */,
+				70590C4223CB91150072208C /* HBOTextFieldTop.swift */,
+				70590C4423CB94170072208C /* HBOTextFieldBottom.swift */,
+				70DE1F4023CC3E2600A1E40F /* HBOTextFieldAll.swift */,
+				70DE1F4223CC3F1500A1E40F /* HBOTextFieldTopLeft.swift */,
+				70DE1F4423CC3F3400A1E40F /* HBOTextFieldTopRight.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		70590C0523CB81CB0072208C = {
 			isa = PBXGroup;
 			children = (
-				70590C3F23CB8D600072208C /* custom-views */,
 				70590C1023CB81CB0072208C /* hbo-app */,
 				70590C2523CB81CF0072208C /* hbo-appTests */,
 				70590C3023CB81CF0072208C /* hbo-appUITests */,
@@ -112,13 +133,13 @@
 		70590C1023CB81CB0072208C /* hbo-app */ = {
 			isa = PBXGroup;
 			children = (
-				70590C1123CB81CB0072208C /* AppDelegate.swift */,
-				70590C1323CB81CB0072208C /* ViewControllerRegister.swift */,
+				701C9AD423D09161004C18D1 /* views */,
+				701C9AD323D08FA9004C18D1 /* controllers */,
 				70590C1523CB81CB0072208C /* Main.storyboard */,
+				70590C1123CB81CB0072208C /* AppDelegate.swift */,
 				70590C1823CB81CF0072208C /* Assets.xcassets */,
 				70590C1A23CB81CF0072208C /* LaunchScreen.storyboard */,
 				70590C1D23CB81CF0072208C /* Info.plist */,
-				70584EF423CCEF3C00FA48EA /* ViewControllerLogin.swift */,
 			);
 			path = "hbo-app";
 			sourceTree = "<group>";
@@ -139,19 +160,6 @@
 				70590C3323CB81CF0072208C /* Info.plist */,
 			);
 			path = "hbo-appUITests";
-			sourceTree = "<group>";
-		};
-		70590C3F23CB8D600072208C /* custom-views */ = {
-			isa = PBXGroup;
-			children = (
-				70590C4023CB8D930072208C /* HBOButton.swift */,
-				70590C4223CB91150072208C /* HBOTextFieldTop.swift */,
-				70590C4423CB94170072208C /* HBOTextFieldBottom.swift */,
-				70DE1F4023CC3E2600A1E40F /* HBOTextFieldAll.swift */,
-				70DE1F4223CC3F1500A1E40F /* HBOTextFieldTopLeft.swift */,
-				70DE1F4423CC3F3400A1E40F /* HBOTextFieldTopRight.swift */,
-			);
-			path = "custom-views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
