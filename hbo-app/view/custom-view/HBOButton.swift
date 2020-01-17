@@ -10,12 +10,6 @@ import Foundation
 import UIKit
 
 class HBOButton: UIButton {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupButton()
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupButton()
@@ -23,7 +17,7 @@ class HBOButton: UIButton {
     
     private func setupButton() {
         clipsToBounds = true
-        layer.cornerRadius  = CGFloat(5)
+        layer.cornerRadius  = CGFloat(8)
     }
 }
 
