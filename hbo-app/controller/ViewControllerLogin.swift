@@ -25,8 +25,12 @@ class ViewControllerLogin: UIViewController {
         
         emailAddress.layer.cornerRadius = 10
           emailAddress.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        emailAddress.setLeftPaddingPoints(10)
+        emailAddress.setRightPaddingPoints(10)
         
         password.layer.cornerRadius = 10
         password.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        password.setLeftPaddingPoints(10)
+        password.setRightPaddingPoints(10)
     }
 }
