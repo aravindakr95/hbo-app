@@ -18,6 +18,11 @@
 		70590C2723CB81CF0072208C /* hbo_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70590C2623CB81CF0072208C /* hbo_appTests.swift */; };
 		70590C3223CB81CF0072208C /* hbo_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70590C3123CB81CF0072208C /* hbo_appUITests.swift */; };
 		70590C4123CB8D930072208C /* HBOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70590C4023CB8D930072208C /* HBOButton.swift */; };
+		707897BD23D54115009BF57A /* FieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897B723D54115009BF57A /* FieldValidator.swift */; };
+		707897BE23D54115009BF57A /* FieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897B823D54115009BF57A /* FieldType.swift */; };
+		707897BF23D54115009BF57A /* ViewControllerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897B923D54115009BF57A /* ViewControllerHome.swift */; };
+		707897C123D54115009BF57A /* ViewControllerAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897BB23D54115009BF57A /* ViewControllerAlert.swift */; };
+		707897C323D541E6009BF57A /* HBOCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897C223D541E6009BF57A /* HBOCheckBox.swift */; };
 		70E2217D23D1076B00889039 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70E2217C23D1076B00889039 /* GoogleService-Info.plist */; };
 		C076C5E45575A6A5CAB9FC99 /* Pods_hbo_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9907E1F215DD582B5561194 /* Pods_hbo_app.framework */; };
 		D433F7124B9C0128327C502F /* Pods_hbo_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5459F1037BD67E34B67EADA /* Pods_hbo_appTests.framework */; };
@@ -62,6 +67,11 @@
 		70590C3123CB81CF0072208C /* hbo_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hbo_appUITests.swift; sourceTree = "<group>"; };
 		70590C3323CB81CF0072208C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70590C4023CB8D930072208C /* HBOButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HBOButton.swift; sourceTree = "<group>"; };
+		707897B723D54115009BF57A /* FieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldValidator.swift; sourceTree = "<group>"; };
+		707897B823D54115009BF57A /* FieldType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
+		707897B923D54115009BF57A /* ViewControllerHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHome.swift; sourceTree = "<group>"; };
+		707897BB23D54115009BF57A /* ViewControllerAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAlert.swift; sourceTree = "<group>"; };
+		707897C223D541E6009BF57A /* HBOCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBOCheckBox.swift; sourceTree = "<group>"; };
 		70E2217C23D1076B00889039 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9907E1F215DD582B5561194 /* Pods_hbo_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hbo_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0149BC92257704813124F4C /* Pods-hbo-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hbo-appTests.debug.xcconfig"; path = "Target Support Files/Pods-hbo-appTests/Pods-hbo-appTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,8 +124,12 @@
 			isa = PBXGroup;
 			children = (
 				70590C1123CB81CB0072208C /* AppDelegate.swift */,
+				707897B923D54115009BF57A /* ViewControllerHome.swift */,
 				70590C1323CB81CB0072208C /* ViewControllerRegister.swift */,
 				70584EF423CCEF3C00FA48EA /* ViewControllerLogin.swift */,
+				707897BB23D54115009BF57A /* ViewControllerAlert.swift */,
+				707897B823D54115009BF57A /* FieldType.swift */,
+				707897B723D54115009BF57A /* FieldValidator.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -133,6 +147,7 @@
 		7052EB9523D192130056B0FA /* custom-view */ = {
 			isa = PBXGroup;
 			children = (
+				707897C223D541E6009BF57A /* HBOCheckBox.swift */,
 				70590C4023CB8D930072208C /* HBOButton.swift */,
 				7052EB9323D168D00056B0FA /* HBOTextField.swift */,
 			);
@@ -221,7 +236,6 @@
 				70590C0B23CB81CB0072208C /* Frameworks */,
 				70590C0C23CB81CB0072208C /* Resources */,
 				7EB576C68864A1144F741FC7 /* [CP] Embed Pods Frameworks */,
-				C73D179BF0B12C296AFDEAF9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,7 +274,6 @@
 				70590C2A23CB81CF0072208C /* Frameworks */,
 				70590C2B23CB81CF0072208C /* Resources */,
 				81114BD2EF8E72A45DD71D51 /* [CP] Embed Pods Frameworks */,
-				E70C1038AC657BD171027765 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -400,23 +413,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hbo-app-hbo-appUITests/Pods-hbo-app-hbo-appUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C73D179BF0B12C296AFDEAF9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hbo-app/Pods-hbo-app-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hbo-app/Pods-hbo-app-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hbo-app/Pods-hbo-app-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DB183F42EF38CF23AE8E7A6B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -437,23 +433,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E70C1038AC657BD171027765 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hbo-app-hbo-appUITests/Pods-hbo-app-hbo-appUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-hbo-app-hbo-appUITests/Pods-hbo-app-hbo-appUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hbo-app-hbo-appUITests/Pods-hbo-app-hbo-appUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EF9D190C9080CCD6995B2855 /* [CP] Check Pods Manifest.lock */ = {
@@ -485,11 +464,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				707897BE23D54115009BF57A /* FieldType.swift in Sources */,
 				70590C1423CB81CB0072208C /* ViewControllerRegister.swift in Sources */,
 				70584EF523CCEF3C00FA48EA /* ViewControllerLogin.swift in Sources */,
+				707897BF23D54115009BF57A /* ViewControllerHome.swift in Sources */,
 				7052EB9423D168D00056B0FA /* HBOTextField.swift in Sources */,
 				70590C1223CB81CB0072208C /* AppDelegate.swift in Sources */,
+				707897C123D54115009BF57A /* ViewControllerAlert.swift in Sources */,
 				70590C4123CB8D930072208C /* HBOButton.swift in Sources */,
+				707897C323D541E6009BF57A /* HBOCheckBox.swift in Sources */,
+				707897BD23D54115009BF57A /* FieldValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

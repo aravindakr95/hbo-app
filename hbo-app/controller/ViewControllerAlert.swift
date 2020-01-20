@@ -1,5 +1,5 @@
 //
-//  AlertViewController.swift
+//  ViewControllerAlert.swift
 //  hbo-app
 //
 //  Created by Aravinda Rathnayake on 1/18/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlertViewController {
+class ViewControllerAlert {
     public static func showAlert(header: String, body: String, action: String) -> UIViewController {
         let alert = UIAlertController(title: header, message: body, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: action, style: UIAlertAction.Style.default, handler: nil))

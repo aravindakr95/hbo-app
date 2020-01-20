@@ -65,10 +65,10 @@ class ViewControllerRegister: UIViewController {
             let alert: UIViewController
             
             if (error != nil) {
-                alert = AlertViewController.showAlert(header: "Registration Failed", body: (error?.localizedDescription)!, action: "Okay")
+                alert = ViewControllerAlert.showAlert(header: "Registration Failed", body: (error?.localizedDescription)!, action: "Okay")
                 
             } else {
-                alert = AlertViewController.showAlert(header: "Registration Success", body: "Signup Successfully!, Please Sign In", action: "Okay")
+                alert = ViewControllerAlert.showAlert(header: "Registration Success", body: "Signup Successfully!, Please Sign In", action: "Okay")
             }
             
             self.present(alert, animated: true, completion: nil)
