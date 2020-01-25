@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ViewControllerAlert {
-    public static func showAlert(header: String, body: String, action: String) -> UIViewController {
+class AlertViewController {
+    public static func showAlert(header: String, body: String, action: String, handler: ((UIAlertAction) -> Void)? = nil) -> UIViewController {
         let alert = UIAlertController(title: header, message: body, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: action, style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: action, style: UIAlertAction.Style.default, handler: handler))
         
         return alert
     }
