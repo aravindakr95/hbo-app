@@ -10,6 +10,7 @@ target 'hbo-app' do
     pod 'Firebase/Auth'
     pod 'Firebase'
     pod 'Firebase/Firestore'
+    pod 'KeychainSwift'
 
   target 'hbo-appTests' do
     inherit! :search_paths

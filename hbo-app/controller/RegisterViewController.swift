@@ -7,10 +7,12 @@
 //
 
 import UIKit
+
 import FirebaseAuth
 import Firebase
+import KeychainSwift
 
-class RegisterViewController: UIViewController, UITextFieldDelegate {
+class RegisterViewController: UIViewController {
     @IBOutlet weak var txtFirstName: HBOTextField!
     @IBOutlet weak var txtLastName: HBOTextField!
     @IBOutlet weak var txtEmailAddress: HBOTextField!
@@ -138,6 +140,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         
                         return
                     } else {
+                        guard let email = self.txtEmailAddress.text,
+                            let password = self.txtPassword.text else { return }
+                        
+                        let keychain = KeychainSwift()
+                        
+                        keychain.set(email, forKey: "email")
+                        keychain.set(password, forKey: "password")
+                        
                         alert = AlertViewController.showAlert(header: "Registration Success", body: "Registration is Successful, Please Sign In.", action: "Okay", handler: {(_: UIAlertAction!) in
                             self.transitionToMain()
                         })
@@ -150,8 +160,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func transitionToMain() {
-        let mainViewController = storyboard?.instantiateViewController(withIdentifier: "main")
+        let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "main") as! MainViewController
         view.window?.rootViewController = mainViewController
+        
         view.window?.makeKeyAndVisible()
     }
 }
