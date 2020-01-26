@@ -6,8 +6,10 @@ target 'hbo-app' do
   use_frameworks!
 
   # Pods for hbo-app
-    pod 'Firebase'
+    pod 'Firebase/Analytics'
     pod 'Firebase/Auth'
+    pod 'Firebase'
+    pod 'Firebase/Firestore'
 
   target 'hbo-appTests' do
     inherit! :search_paths

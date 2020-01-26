@@ -1,5 +1,5 @@
 //
-//  ViewControllerAlert.swift
+//  AlertViewController.swift
 //  hbo-app
 //
 //  Created by Aravinda Rathnayake on 1/18/20.
