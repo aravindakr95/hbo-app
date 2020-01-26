@@ -122,13 +122,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		7015889423D69F580041DD6F /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
 		701C9AD323D08FA9004C18D1 /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +182,6 @@
 		70590C1023CB81CB0072208C /* hbo-app */ = {
 			isa = PBXGroup;
 			children = (
-				7015889423D69F580041DD6F /* model */,
 				70E2217B23D1059E00889039 /* supporting-flies */,
 				701C9AD423D09161004C18D1 /* view */,
 				701C9AD323D08FA9004C18D1 /* controller */,
