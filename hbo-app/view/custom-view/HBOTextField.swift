@@ -24,7 +24,7 @@ class HBOTextField: UITextField {
     }
 }
 
-extension UITextField{
+extension UITextField {
     @IBInspectable var placeHolderColor: UIColor? {
         get {
             return self.placeHolderColor

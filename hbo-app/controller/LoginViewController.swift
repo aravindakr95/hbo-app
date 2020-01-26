@@ -1,5 +1,5 @@
 //
-//  ViewControllerLogin.swift
+//  LoginViewController.swift
 //  hbo-app
 //
 //  Created by Aravinda Rathnayake on 1/14/20.
@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class ViewControllerLogin: UIViewController {
+class LoginViewController: UIViewController {
     @IBOutlet weak var subscriptionButton: UIButton!
     @IBOutlet weak var txtEmailAddress: HBOTextField!
     @IBOutlet weak var txtPassword: HBOTextField!
@@ -27,7 +27,7 @@ class ViewControllerLogin: UIViewController {
         subscriptionButton.layer.borderColor = UIColor.gray.cgColor
         
         txtEmailAddress.layer.cornerRadius = 10
-          txtEmailAddress.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        txtEmailAddress.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         txtEmailAddress.setLeftPaddingPoints(10)
         txtEmailAddress.setRightPaddingPoints(10)
         
@@ -47,16 +47,16 @@ class ViewControllerLogin: UIViewController {
         ]
         
         for (type, field) in fields {
-                let (valid, message) = validator.validate(type: type, textField: field)
-                if (!valid) {
-                    fieldErrors.updateValue(message, forKey: type)
-                }
+            let (valid, message) = validator.validate(type: type, textField: field)
+            if (!valid) {
+                fieldErrors.updateValue(message, forKey: type)
+            }
         }
         
         if fieldErrors.count > 0 {
             var alert: UIViewController
             
-            alert = ViewControllerAlert.showAlert(header: "Sign In Failed", body: "The following \(fieldErrors.values.joined(separator: ", ")) field(s) are invalid.", action: "Okay")
+            alert = AlertViewController.showAlert(header: "Sign In Failed", body: "The following \(fieldErrors.values.joined(separator: ", ")) field(s) are invalid.", action: "Okay")
             
             self.present(alert, animated: true, completion: nil)
             
@@ -66,16 +66,21 @@ class ViewControllerLogin: UIViewController {
         Auth.auth().signIn(withEmail: txtEmailAddress.text!, password: txtPassword.text!) { [weak self] authResult, error in
             
             if error != nil {
-                let alert = ViewControllerAlert.showAlert(header: "Sign In Failed", body: (error?.localizedDescription)!, action: "Okay")
+                let alert = AlertViewController.showAlert(header: "Sign In Failed", body: (error?.localizedDescription)!, action: "Okay")
                 
                 self?.present(alert, animated: true, completion: nil)
                 
                 return
             } else {
-                print("redirect")
-                //TODO: Redirect to Main Page
+                self?.transitionToHome()
             }
         }
+    }
+    
+    private func transitionToHome() {
+        let homeViewController = storyboard?.instantiateViewController(withIdentifier: "home")
+        view.window?.rootViewController = homeViewController
+        view.window?.makeKeyAndVisible()
     }
     
 }

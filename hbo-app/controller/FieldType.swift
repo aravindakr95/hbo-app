@@ -12,5 +12,4 @@ enum FieldType : String {
     case Email
     case Password
     case Text
-    case Number
 }

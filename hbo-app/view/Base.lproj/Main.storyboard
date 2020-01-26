@@ -13,7 +13,7 @@
         <!--Sign In-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewControllerLogin" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signIn" id="BYZ-38-t0r" customClass="LoginViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,6 +56,9 @@
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sIt-d4-SgS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZM-Di-WOY">
                                 <rect key="frame" x="20" y="705" width="374" height="70"/>
@@ -82,9 +85,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign In" id="rv0-2o-WIv"/>
                     <connections>
-                        <outlet property="emailAddress" destination="BO2-9N-QhX" id="UaU-1W-qfs"/>
-                        <outlet property="password" destination="4ZQ-Rn-6KR" id="hNn-Hg-R3t"/>
                         <outlet property="subscriptionButton" destination="2ZM-Di-WOY" id="LYo-fN-Vru"/>
+                        <outlet property="txtEmailAddress" destination="BO2-9N-QhX" id="UaU-1W-qfs"/>
+                        <outlet property="txtPassword" destination="4ZQ-Rn-6KR" id="hNn-Hg-R3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -95,7 +98,7 @@
         <!--registration-->
         <scene sceneID="8e8-QA-GrY">
             <objects>
-                <viewController title="registration" id="Lkq-px-ZF1" customClass="ViewControllerRegister" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registration" title="registration" id="Lkq-px-ZF1" customClass="RegisterViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2aC-Iq-JT7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,7 +192,7 @@
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                         <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -294,7 +297,7 @@
         <!--home-->
         <scene sceneID="vsA-dj-psE">
             <objects>
-                <viewController title="home" id="BgB-6s-vuy" customClass="ViewControllerHome" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" title="home" id="BgB-6s-vuy" customClass="MainViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jdo-qT-PFd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -379,6 +382,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxZ-UP-iQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="126.5625"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="I8a-yD-Xko">
+            <objects>
+                <viewController storyboardIdentifier="home" id="wWo-FS-kpi" customClass="HomeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ij7-nl-rOT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome, User" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8j-oq-UUg">
+                                <rect key="frame" x="20" y="410" width="374" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yrf-u2-fCI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0tO-3y-xS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2462" y="127"/>
         </scene>
     </scenes>
     <resources>

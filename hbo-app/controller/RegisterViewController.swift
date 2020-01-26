@@ -1,5 +1,5 @@
 //
-//  ViewControllerRegister.swift
+//  RegisterViewController.swift
 //  hbo-app
 //
 //  Created by Aravinda Rathnayake on 1/12/20.
@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class ViewControllerRegister: UIViewController, UITextFieldDelegate {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtFirstName: HBOTextField!
     @IBOutlet weak var txtLastName: HBOTextField!
     @IBOutlet weak var txtEmailAddress: HBOTextField!
@@ -94,7 +94,7 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate {
         if fieldErrors.count > 0 {
             var alert: UIViewController
             
-            alert = ViewControllerAlert.showAlert(header: "Registration Failed", body: "The following \(fieldErrors.values.joined(separator: ", ")) field(s) are invalid.", action: "Okay")
+            alert = AlertViewController.showAlert(header: "Registration Failed", body: "The following \(fieldErrors.values.joined(separator: ", ")) field(s) are invalid.", action: "Okay")
             
             self.present(alert, animated: true, completion: nil)
             
@@ -106,7 +106,7 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate {
             print("CB \(cbAgreement.isChecked)")
             var alert: UIViewController
             
-            alert = ViewControllerAlert.showAlert(header: "Registration Failed", body: "Please read our Privacy Policy and agree to the Terms and Conditions.", action: "Okay")
+            alert = AlertViewController.showAlert(header: "Registration Failed", body: "Please read our Privacy Policy and agree to the Terms and Conditions.", action: "Okay")
             
             self.present(alert, animated: true, completion: nil)
             
@@ -117,7 +117,7 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate {
             authResult, error in
             if (error != nil) {
                 var alert: UIViewController
-                alert = ViewControllerAlert.showAlert(header: "Registration Failed", body: (error?.localizedDescription)!, action: "Okay")
+                alert = AlertViewController.showAlert(header: "Registration Failed", body: (error?.localizedDescription)!, action: "Okay")
                 
                 self.present(alert, animated: true, completion: nil)
             } else {
@@ -132,14 +132,14 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate {
                     var alert: UIViewController
                     
                     if error != nil {
-                        alert = ViewControllerAlert.showAlert(header: "Registration Failed", body: (error?.localizedDescription)!, action: "Okay")
+                        alert = AlertViewController.showAlert(header: "Registration Failed", body: (error?.localizedDescription)!, action: "Okay")
                         
                         self.present(alert, animated: true, completion: nil)
                         
                         return
                     } else {
-                        alert = ViewControllerAlert.showAlert(header: "Registration Success", body: "Registration is Successful, Please Sign In.", action: "Okay", handler: {(_: UIAlertAction!) in
-                            self.transitionToHome()
+                        alert = AlertViewController.showAlert(header: "Registration Success", body: "Registration is Successful, Please Sign In.", action: "Okay", handler: {(_: UIAlertAction!) in
+                            self.transitionToMain()
                         })
                         
                         self.present(alert, animated: true, completion: nil)
@@ -149,9 +149,9 @@ class ViewControllerRegister: UIViewController, UITextFieldDelegate {
         }
     }
     
-    private func transitionToHome() {
-        let homeViewController = storyboard?.instantiateViewController(withIdentifier: "home")
-        view.window?.rootViewController = homeViewController
+    private func transitionToMain() {
+        let mainViewController = storyboard?.instantiateViewController(withIdentifier: "main")
+        view.window?.rootViewController = mainViewController
         view.window?.makeKeyAndVisible()
     }
 }

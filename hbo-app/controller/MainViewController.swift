@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  MainViewController.swift
 //  hbo-app
 //
 //  Created by Aravinda Rathnayake on 1/18/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
