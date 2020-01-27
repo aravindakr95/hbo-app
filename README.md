@@ -4,16 +4,16 @@ HBO NOW UI's (Constraints not set)
 ## iPhone XR SS
 
 ### Main
-![Sign In](Screenshots/main.png)
+<img src="Screenshots/main.png" height="400" width="200">
 
 ### Registration
-![Registration](Screenshots/registration.png)
+<img src="Screenshots/registration.png" height="400" width="200">
 
 ### Sign In
-![Sign In](Screenshots/login.png)
+<img src="Screenshots/login.png" height="400" width="200">
 
 ### Forgot Password
-![Sign In](Screenshots/forgot-password.png)
+<img src="Screenshots/forgot-password.png" height="400" width="200">
 
 ### Home
-![Sign In](Screenshots/home.png)
+<img src="Screenshots/home.png" height="400" width="200">
