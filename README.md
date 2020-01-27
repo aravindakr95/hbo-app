@@ -1,11 +1,19 @@
 # hbo-app
-HBO NOW UI's
+HBO NOW UI's (Constraints not set)
 
 ## iPhone XR SS
 
-### Registration
-<img src="https://i.imgur.com/E5VBuCH.png" height="400" width="200">
+### Main
+![Sign In](hbo-app/Screenshots/main.png)
 
+### Registration
+![Registration](hbo-app/Screenshots/registration.png)
 
 ### Sign In
-<img src="https://i.imgur.com/PpMeIFl.png" height="400" width="200">
+![Sign In](hbo-app/Screenshots/login.png)
+
+### Forgot Password
+![Sign In](hbo-app/Screenshots/forgot-password.png)
+
+### Home
+![Sign In](hbo-app/Screenshots/home.png)
