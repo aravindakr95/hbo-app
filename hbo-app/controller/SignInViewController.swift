@@ -19,7 +19,7 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var btnBiometrics: HBOButton!
     
-    let validator = FieldValidator()
+    let validator = ValidatorController()
     let localAuthContext = LAContext()
     
     var keychainEmail: String = ""
@@ -34,9 +34,9 @@ class SignInViewController: UIViewController {
     
     private func configureUIStyles() {
         btnBiometrics.isHidden = true
-
+        
         if  localAuthContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: nil) {
-
+            
             if localAuthContext.biometryType == LABiometryType.faceID  {
                 btnBiometrics.isHidden = false
                 btnBiometrics.setImage(UIImage(named: "face-id"), for: .normal)
@@ -92,7 +92,7 @@ class SignInViewController: UIViewController {
         else {
             var alert: UIViewController
             
-            alert = AlertViewController.showAlert(header: "Authentication Failed", body: "Device is not supported for any Biometrics Authentication.", action: "Okay")
+            alert = AlertViewController.showAlert(header: "Authentication Failed", body: "Device is not supported for Biometrics Authentication.", action: "Okay")
             
             self.present(alert, animated: true, completion: nil)
         }
@@ -129,7 +129,6 @@ class SignInViewController: UIViewController {
     
     private func authenticate(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            
             if error != nil {
                 let alert = AlertViewController.showAlert(header: "Sign In Failed", body: (error?.localizedDescription)!, action: "Okay")
                 

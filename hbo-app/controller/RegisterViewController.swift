@@ -25,7 +25,9 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var btnRegister: HBOButton!
     @IBOutlet weak var btnSignIn: HBOButton!
     
-    let validator = FieldValidator()
+    let validator = ValidatorController()
+    
+    var alert: UIViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,8 +96,6 @@ class RegisterViewController: UIViewController {
         }
         
         if fieldErrors.count > 0 {
-            var alert: UIViewController
-            
             alert = AlertViewController.showAlert(header: "Registration Failed", body: "The following \(fieldErrors.values.joined(separator: ", ")) field(s) are invalid.", action: "Okay")
             
             self.present(alert, animated: true, completion: nil)
@@ -105,9 +105,6 @@ class RegisterViewController: UIViewController {
         
         // FIXME: cbAgreement isChecked method returns wrong state of the checkbox
         if isChecked {
-            print("CB \(cbAgreement.isChecked)")
-            var alert: UIViewController
-            
             alert = AlertViewController.showAlert(header: "Registration Failed", body: "Please read our Privacy Policy and agree to the Terms and Conditions.", action: "Okay")
             
             self.present(alert, animated: true, completion: nil)
@@ -118,10 +115,9 @@ class RegisterViewController: UIViewController {
         Auth.auth().createUser(withEmail: txtEmailAddress.text!, password: txtPassword.text!) {
             authResult, error in
             if (error != nil) {
-                var alert: UIViewController
-                alert = AlertViewController.showAlert(header: "Registration Failed", body: (error?.localizedDescription)!, action: "Okay")
+                self.alert = AlertViewController.showAlert(header: "Registration Failed", body: (error?.localizedDescription)!, action: "Okay")
                 
-                self.present(alert, animated: true, completion: nil)
+                self.present(self.alert, animated: true, completion: nil)
             } else {
                 let database = Firestore.firestore()
                 
@@ -131,12 +127,10 @@ class RegisterViewController: UIViewController {
                     "lastName": self.txtLastName.text!,
                     "zipCode": self.txtZipCode.text!
                 ]) { (error) in
-                    var alert: UIViewController
-                    
                     if error != nil {
-                        alert = AlertViewController.showAlert(header: "Registration Failed", body: (error?.localizedDescription)!, action: "Okay")
+                        self.alert = AlertViewController.showAlert(header: "Registration Failed", body: (error?.localizedDescription)!, action: "Okay")
                         
-                        self.present(alert, animated: true, completion: nil)
+                        self.present(self.alert, animated: true, completion: nil)
                         
                         return
                     } else {
@@ -148,11 +142,11 @@ class RegisterViewController: UIViewController {
                         keychain.set(email, forKey: "email")
                         keychain.set(password, forKey: "password")
                         
-                        alert = AlertViewController.showAlert(header: "Registration Success", body: "Registration is Successful, Please Sign In.", action: "Okay", handler: {(_: UIAlertAction!) in
+                        self.alert = AlertViewController.showAlert(header: "Registration Success", body: "Registration is Successful, Please Sign In.", action: "Okay", handler: {(_: UIAlertAction!) in
                             self.transitionToMain()
                         })
                         
-                        self.present(alert, animated: true, completion: nil)
+                        self.present(self.alert, animated: true, completion: nil)
                     }
                 }
             }
@@ -160,10 +154,7 @@ class RegisterViewController: UIViewController {
     }
     
     private func transitionToMain() {
-        let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "main") as! MainViewController
-        view.window?.rootViewController = mainViewController
-        
-        view.window?.makeKeyAndVisible()
+        TransitionController.transition(selfView: view, sbName: "Main", identifier: "main")
     }
 }
 

@@ -333,6 +333,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
                                 <state key="normal" title="Sign-In"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="8Te-H8-4Eu"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your password must be atleast 8 characters long, and combine letters with numerals and/or special characters." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xob-rh-fLE">
                                 <rect key="frame" x="20" y="411" width="374" height="74"/>
@@ -360,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwc-J9-rh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1673.913043478261" y="-197.54464285714286"/>
+            <point key="canvasLocation" x="1693" y="-228"/>
         </scene>
         <!--home-->
         <scene sceneID="vsA-dj-psE">
@@ -484,4 +487,7 @@
         <image name="front-logo" width="1280" height="720"/>
         <image name="hbo-logo" width="1039" height="262"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="8Te-H8-4Eu"/>
+    </inferredMetricsTieBreakers>
 </document>
