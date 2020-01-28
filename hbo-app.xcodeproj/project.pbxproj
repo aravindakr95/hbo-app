@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		54F17351AE6D5F0D9058746E /* Pods_hbo_app_hbo_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F835F7C94EC07B644DD31CDC /* Pods_hbo_app_hbo_appUITests.framework */; };
-		7004EC5823DEF92900544A6D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7004EC5723DEF92900544A6D /* AuthManager.swift */; };
 		7039FB9323DC9843006A9D1E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7039FB9223DC9843006A9D1E /* HomeViewController.swift */; };
 		7052EB9423D168D00056B0FA /* HBOTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7052EB9323D168D00056B0FA /* HBOTextField.swift */; };
 		70584EF523CCEF3C00FA48EA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70584EF423CCEF3C00FA48EA /* SignInViewController.swift */; };
@@ -61,7 +60,6 @@
 		35991848F2AC3627093F0C51 /* Pods-hbo-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hbo-app.release.xcconfig"; path = "Target Support Files/Pods-hbo-app/Pods-hbo-app.release.xcconfig"; sourceTree = "<group>"; };
 		4F66BEB919FE9670130FEA4D /* Pods-hbo-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hbo-appTests.release.xcconfig"; path = "Target Support Files/Pods-hbo-appTests/Pods-hbo-appTests.release.xcconfig"; sourceTree = "<group>"; };
 		57692A9D853E86970FAF63A6 /* Pods-hbo-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hbo-app.debug.xcconfig"; path = "Target Support Files/Pods-hbo-app/Pods-hbo-app.debug.xcconfig"; sourceTree = "<group>"; };
-		7004EC5723DEF92900544A6D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		7039FB9223DC9843006A9D1E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7052EB9323D168D00056B0FA /* HBOTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HBOTextField.swift; sourceTree = "<group>"; };
 		70584EF423CCEF3C00FA48EA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				707897B723D54115009BF57A /* ValidatorController.swift */,
 				70B18C5A23DE4C7900AD443E /* ProfileController.swift */,
 				70B18C5C23DE4D4F00AD443E /* TransitionController.swift */,
-				7004EC5723DEF92900544A6D /* AuthManager.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -516,7 +513,6 @@
 				70590C1423CB81CB0072208C /* RegisterViewController.swift in Sources */,
 				70584EF523CCEF3C00FA48EA /* SignInViewController.swift in Sources */,
 				707897BF23D54115009BF57A /* MainViewController.swift in Sources */,
-				7004EC5823DEF92900544A6D /* AuthManager.swift in Sources */,
 				70B18C5D23DE4D4F00AD443E /* TransitionController.swift in Sources */,
 				7052EB9423D168D00056B0FA /* HBOTextField.swift in Sources */,
 				70B18C5B23DE4C7900AD443E /* ProfileController.swift in Sources */,
