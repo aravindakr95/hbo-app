@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Forgot Password-->
+        <!--Password Reset-->
         <scene sceneID="fcA-xw-zbd">
             <objects>
-                <viewController title="Forgot Password" id="Zxm-IG-Z4p" customClass="ForgotPasswordViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Password Reset" id="Zxm-IG-Z4p" customClass="PasswordResetController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MNc-Y9-hhr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,7 +129,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4z-IQ-xPH">
-                                <rect key="frame" x="126" y="509" width="163" height="30"/>
+                                <rect key="frame" x="126" y="433" width="163" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="18"/>
                                 <state key="normal" title="Forgot Password?"/>
@@ -138,7 +138,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mV2-OA-5ua" customClass="HBOButton" customModule="hbo_app" customModuleProvider="target">
-                                <rect key="frame" x="179" y="434" width="56" height="56"/>
+                                <rect key="frame" x="179" y="485" width="56" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Touch ID"/>
                                 <connections>
@@ -461,21 +461,9 @@
                     <view key="view" contentMode="scaleToFill" id="ij7-nl-rOT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome, User" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8j-oq-UUg">
-                                <rect key="frame" x="20" y="410" width="374" height="77"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="yrf-u2-fCI"/>
                     </view>
-                    <connections>
-                        <outlet property="lblCurrentUser" destination="e8j-oq-UUg" id="jvD-XD-t2J"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tO-3y-xS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -488,6 +476,6 @@
         <image name="hbo-logo" width="1039" height="262"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8Te-H8-4Eu"/>
+        <segue reference="Npe-bq-8um"/>
     </inferredMetricsTieBreakers>
 </document>

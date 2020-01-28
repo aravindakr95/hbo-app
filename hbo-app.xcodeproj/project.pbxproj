@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		54F17351AE6D5F0D9058746E /* Pods_hbo_app_hbo_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F835F7C94EC07B644DD31CDC /* Pods_hbo_app_hbo_appUITests.framework */; };
+		7004EC5823DEF92900544A6D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7004EC5723DEF92900544A6D /* AuthManager.swift */; };
 		7039FB9323DC9843006A9D1E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7039FB9223DC9843006A9D1E /* HomeViewController.swift */; };
 		7052EB9423D168D00056B0FA /* HBOTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7052EB9323D168D00056B0FA /* HBOTextField.swift */; };
 		70584EF523CCEF3C00FA48EA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70584EF423CCEF3C00FA48EA /* SignInViewController.swift */; };
@@ -27,12 +28,12 @@
 		70B18C5B23DE4C7900AD443E /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B18C5A23DE4C7900AD443E /* ProfileController.swift */; };
 		70B18C5D23DE4D4F00AD443E /* TransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B18C5C23DE4D4F00AD443E /* TransitionController.swift */; };
 		70CCCDAA23DE8D3E0044C6A7 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CCCDA523DE8D3E0044C6A7 /* home.png */; };
-		70CCCDAB23DE8D3E0044C6A7 /* forgot-password.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CCCDA623DE8D3E0044C6A7 /* forgot-password.png */; };
-		70CCCDAC23DE8D3E0044C6A7 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CCCDA723DE8D3E0044C6A7 /* login.png */; };
+		70CCCDAB23DE8D3E0044C6A7 /* reset-password.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CCCDA623DE8D3E0044C6A7 /* reset-password.png */; };
+		70CCCDAC23DE8D3E0044C6A7 /* signIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CCCDA723DE8D3E0044C6A7 /* signIn.png */; };
 		70CCCDAD23DE8D3E0044C6A7 /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CCCDA823DE8D3E0044C6A7 /* main.png */; };
 		70CCCDAE23DE8D3E0044C6A7 /* registration.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CCCDA923DE8D3E0044C6A7 /* registration.png */; };
 		70E2217D23D1076B00889039 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70E2217C23D1076B00889039 /* GoogleService-Info.plist */; };
-		70FB2B3623DD559300A594DE /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FB2B3523DD559300A594DE /* ForgotPasswordViewController.swift */; };
+		70FB2B3623DD559300A594DE /* PasswordResetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FB2B3523DD559300A594DE /* PasswordResetController.swift */; };
 		C076C5E45575A6A5CAB9FC99 /* Pods_hbo_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9907E1F215DD582B5561194 /* Pods_hbo_app.framework */; };
 		D433F7124B9C0128327C502F /* Pods_hbo_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5459F1037BD67E34B67EADA /* Pods_hbo_appTests.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		35991848F2AC3627093F0C51 /* Pods-hbo-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hbo-app.release.xcconfig"; path = "Target Support Files/Pods-hbo-app/Pods-hbo-app.release.xcconfig"; sourceTree = "<group>"; };
 		4F66BEB919FE9670130FEA4D /* Pods-hbo-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hbo-appTests.release.xcconfig"; path = "Target Support Files/Pods-hbo-appTests/Pods-hbo-appTests.release.xcconfig"; sourceTree = "<group>"; };
 		57692A9D853E86970FAF63A6 /* Pods-hbo-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hbo-app.debug.xcconfig"; path = "Target Support Files/Pods-hbo-app/Pods-hbo-app.debug.xcconfig"; sourceTree = "<group>"; };
+		7004EC5723DEF92900544A6D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		7039FB9223DC9843006A9D1E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7052EB9323D168D00056B0FA /* HBOTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HBOTextField.swift; sourceTree = "<group>"; };
 		70584EF423CCEF3C00FA48EA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -85,12 +87,12 @@
 		70B18C5A23DE4C7900AD443E /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		70B18C5C23DE4D4F00AD443E /* TransitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionController.swift; sourceTree = "<group>"; };
 		70CCCDA523DE8D3E0044C6A7 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
-		70CCCDA623DE8D3E0044C6A7 /* forgot-password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forgot-password.png"; sourceTree = "<group>"; };
-		70CCCDA723DE8D3E0044C6A7 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		70CCCDA623DE8D3E0044C6A7 /* reset-password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reset-password.png"; sourceTree = "<group>"; };
+		70CCCDA723DE8D3E0044C6A7 /* signIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signIn.png; sourceTree = "<group>"; };
 		70CCCDA823DE8D3E0044C6A7 /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
 		70CCCDA923DE8D3E0044C6A7 /* registration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registration.png; sourceTree = "<group>"; };
 		70E2217C23D1076B00889039 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		70FB2B3523DD559300A594DE /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		70FB2B3523DD559300A594DE /* PasswordResetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetController.swift; sourceTree = "<group>"; };
 		A9907E1F215DD582B5561194 /* Pods_hbo_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hbo_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0149BC92257704813124F4C /* Pods-hbo-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hbo-appTests.debug.xcconfig"; path = "Target Support Files/Pods-hbo-appTests/Pods-hbo-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C5459F1037BD67E34B67EADA /* Pods_hbo_appTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hbo_appTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,12 +148,13 @@
 				70590C1323CB81CB0072208C /* RegisterViewController.swift */,
 				70584EF423CCEF3C00FA48EA /* SignInViewController.swift */,
 				7039FB9223DC9843006A9D1E /* HomeViewController.swift */,
-				70FB2B3523DD559300A594DE /* ForgotPasswordViewController.swift */,
+				70FB2B3523DD559300A594DE /* PasswordResetController.swift */,
 				707897BB23D54115009BF57A /* AlertViewController.swift */,
 				707897B823D54115009BF57A /* FieldType.swift */,
 				707897B723D54115009BF57A /* ValidatorController.swift */,
 				70B18C5A23DE4C7900AD443E /* ProfileController.swift */,
 				70B18C5C23DE4D4F00AD443E /* TransitionController.swift */,
+				7004EC5723DEF92900544A6D /* AuthManager.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -231,9 +234,9 @@
 		70CCCDA423DE8B760044C6A7 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
-				70CCCDA623DE8D3E0044C6A7 /* forgot-password.png */,
+				70CCCDA623DE8D3E0044C6A7 /* reset-password.png */,
 				70CCCDA523DE8D3E0044C6A7 /* home.png */,
-				70CCCDA723DE8D3E0044C6A7 /* login.png */,
+				70CCCDA723DE8D3E0044C6A7 /* signIn.png */,
 				70CCCDA823DE8D3E0044C6A7 /* main.png */,
 				70CCCDA923DE8D3E0044C6A7 /* registration.png */,
 			);
@@ -377,10 +380,10 @@
 				70590C1C23CB81CF0072208C /* LaunchScreen.storyboard in Resources */,
 				70CCCDAA23DE8D3E0044C6A7 /* home.png in Resources */,
 				70E2217D23D1076B00889039 /* GoogleService-Info.plist in Resources */,
-				70CCCDAB23DE8D3E0044C6A7 /* forgot-password.png in Resources */,
+				70CCCDAB23DE8D3E0044C6A7 /* reset-password.png in Resources */,
 				70590C1923CB81CF0072208C /* Assets.xcassets in Resources */,
 				70590C1723CB81CB0072208C /* Main.storyboard in Resources */,
-				70CCCDAC23DE8D3E0044C6A7 /* login.png in Resources */,
+				70CCCDAC23DE8D3E0044C6A7 /* signIn.png in Resources */,
 				70CCCDAE23DE8D3E0044C6A7 /* registration.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,13 +516,14 @@
 				70590C1423CB81CB0072208C /* RegisterViewController.swift in Sources */,
 				70584EF523CCEF3C00FA48EA /* SignInViewController.swift in Sources */,
 				707897BF23D54115009BF57A /* MainViewController.swift in Sources */,
+				7004EC5823DEF92900544A6D /* AuthManager.swift in Sources */,
 				70B18C5D23DE4D4F00AD443E /* TransitionController.swift in Sources */,
 				7052EB9423D168D00056B0FA /* HBOTextField.swift in Sources */,
 				70B18C5B23DE4C7900AD443E /* ProfileController.swift in Sources */,
 				70590C1223CB81CB0072208C /* AppDelegate.swift in Sources */,
 				707897C123D54115009BF57A /* AlertViewController.swift in Sources */,
 				70590C4123CB8D930072208C /* HBOButton.swift in Sources */,
-				70FB2B3623DD559300A594DE /* ForgotPasswordViewController.swift in Sources */,
+				70FB2B3623DD559300A594DE /* PasswordResetController.swift in Sources */,
 				707897C323D541E6009BF57A /* HBOCheckBox.swift in Sources */,
 				707897BD23D54115009BF57A /* ValidatorController.swift in Sources */,
 				7039FB9323DC9843006A9D1E /* HomeViewController.swift in Sources */,

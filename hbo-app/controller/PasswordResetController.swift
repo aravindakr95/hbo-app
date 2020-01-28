@@ -1,5 +1,5 @@
 //
-//  ForgotPasswordViewController.swift
+//  PasswordResetController.swift
 //  hbo-app
 //
 //  Created by Aravinda Rathnayake on 1/26/20.
@@ -10,7 +10,7 @@ import UIKit
 
 import FirebaseAuth
 
-class ForgotPasswordViewController: UIViewController {
+class PasswordResetController: UIViewController {
     @IBOutlet weak var txtEmailAddress: HBOTextField!
     
     override func viewDidLoad() {
@@ -26,15 +26,13 @@ class ForgotPasswordViewController: UIViewController {
     
     @IBAction func onResetPassword(_ sender: HBOButton) {
         Auth.auth().sendPasswordReset(withEmail: txtEmailAddress.text!) { (error) in
+            var alert: UIViewController
+            
             if (error != nil) {
-                var alert: UIViewController
-                
                 alert = AlertViewController.showAlert(header: "Password Reset Failed", body: (error?.localizedDescription)!, action: "Okay")
                 
                 self.present(alert, animated: true, completion: nil)
             } else {
-                var alert: UIViewController
-                
                 alert = AlertViewController.showAlert(header: "Email Sent", body: "We have sent a password reset instructions to your \(self.txtEmailAddress.text!) email address.", action: "Okay")
                 
                 alert = AlertViewController.showAlert(header: "Email Sent", body: "We have sent a password reset instructions to your \(self.txtEmailAddress.text!) email address.", action: "Okay", handler: {(_: UIAlertAction!) in
@@ -47,9 +45,6 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     private func transitionToSignIn() {
-        let signInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signIn") as! SignInViewController
-        view.window?.rootViewController = signInViewController
-        
-        view.window?.makeKeyAndVisible()
+        TransitionController.transition(selfView: view, sbName: "Main", identifier: "signIn")
     }
 }

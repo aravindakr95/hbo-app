@@ -13,18 +13,19 @@ import FirebaseAuth
 import KeychainSwift
 
 class SignInViewController: UIViewController {
-    @IBOutlet weak var subscriptionButton: UIButton!
+    @IBOutlet weak var subscriptionButton: HBOButton!
     @IBOutlet weak var txtEmailAddress: HBOTextField!
     @IBOutlet weak var txtPassword: HBOTextField!
     
     @IBOutlet weak var btnBiometrics: HBOButton!
+    
+    var alert: UIViewController!
     
     let validator = ValidatorController()
     let localAuthContext = LAContext()
     
     var keychainEmail: String = ""
     var keychainPassword: String = ""
-    
     var currentUserEmail: String = ""
     
     override func viewDidLoad() {
@@ -81,20 +82,16 @@ class SignInViewController: UIViewController {
                         }
                     }
                     else {
-                        var alert: UIViewController
+                        self.alert = AlertViewController.showAlert(header: "Authentication Failed", body: (error?.localizedDescription)!, action: "Okay")
                         
-                        alert = AlertViewController.showAlert(header: "Authentication Failed", body: (error?.localizedDescription)!, action: "Okay")
-                        
-                        self.present(alert, animated: true, completion: nil)
+                        self.present(self.alert, animated: true, completion: nil)
                     }
             })
         }
         else {
-            var alert: UIViewController
+            self.alert = AlertViewController.showAlert(header: "Authentication Failed", body: "Device is not supported for Biometrics Authentication.", action: "Okay")
             
-            alert = AlertViewController.showAlert(header: "Authentication Failed", body: "Device is not supported for Biometrics Authentication.", action: "Okay")
-            
-            self.present(alert, animated: true, completion: nil)
+            self.present(self.alert, animated: true, completion: nil)
         }
     }
     
@@ -115,11 +112,9 @@ class SignInViewController: UIViewController {
         }
         
         if fieldErrors.count > 0 {
-            var alert: UIViewController
+            self.alert = AlertViewController.showAlert(header: "Sign In Failed", body: "The following \(fieldErrors.values.joined(separator: ", ")) field(s) are invalid.", action: "Okay")
             
-            alert = AlertViewController.showAlert(header: "Sign In Failed", body: "The following \(fieldErrors.values.joined(separator: ", ")) field(s) are invalid.", action: "Okay")
-            
-            self.present(alert, animated: true, completion: nil)
+            self.present(self.alert, animated: true, completion: nil)
             
             return
         }
@@ -145,7 +140,7 @@ class SignInViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "homeSegue" {
             let homeViewController = segue.destination as? HomeViewController
-            homeViewController!.currentUser = currentUserEmail
+//            homeViewController!.currentUser = currentUserEmail
         }
     }
     

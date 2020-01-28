@@ -9,5 +9,7 @@
 import Foundation
 
 enum FieldType : String {
-    case Email, Password, Text
+    case email
+    case password
+    case text
 }
