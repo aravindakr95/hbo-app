@@ -25,7 +25,6 @@ final class FieldValidator {
     }
     
     func isValidLength(field: String, length: Int) -> Bool {
-        print("Field \(field)")
         return field.count >= length
     }
     

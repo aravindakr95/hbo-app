@@ -1,7 +1,7 @@
 # hbo-app
 HBO NOW UI's (Constraints not set)
 
-## iPhone XR SS
+## iPhone 7 Plus
 
 ### Main
 <img src="Screenshots/main.png" height="400" width="200">
