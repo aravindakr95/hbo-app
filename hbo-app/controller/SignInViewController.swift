@@ -8,25 +8,20 @@
 
 import UIKit
 import LocalAuthentication
-
 import FirebaseAuth
-import KeychainSwift
 
 class SignInViewController: UIViewController {
     @IBOutlet weak var subscriptionButton: HBOButton!
     @IBOutlet weak var txtEmailAddress: HBOTextField!
     @IBOutlet weak var txtPassword: HBOTextField!
     
-    @IBOutlet weak var btnBiometrics: HBOButton!
-    
     var alert: UIViewController!
     
-    let validator = ValidatorController()
     let localAuthContext = LAContext()
     
-    var keychainEmail: String = ""
-    var keychainPassword: String = ""
-    var currentUserEmail: String = ""
+    override func viewDidAppear(_ animated: Bool) {
+        self.canPerformBioMetricsVerification()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,19 +29,6 @@ class SignInViewController: UIViewController {
     }
     
     private func configureUIStyles() {
-        btnBiometrics.isHidden = true
-        
-        if  localAuthContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: nil) {
-            
-            if localAuthContext.biometryType == LABiometryType.faceID  {
-                btnBiometrics.isHidden = false
-                btnBiometrics.setImage(UIImage(named: "face-id"), for: .normal)
-            } else {
-                btnBiometrics.isHidden = false
-                btnBiometrics.setImage(UIImage(named: "touch-id"), for: .normal)
-            }
-        }
-        
         subscriptionButton.layer.cornerRadius = 5
         subscriptionButton.layer.borderWidth = 2
         subscriptionButton.layer.borderColor = UIColor.gray.cgColor
@@ -62,42 +44,12 @@ class SignInViewController: UIViewController {
         txtPassword.setRightPaddingPoints(10)
     }
     
-    @IBAction func authWithBioMetrics(_ sender: HBOButton) {
-        var error: NSError?
-        
-        if localAuthContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let biometricType = localAuthContext.biometryType == LABiometryType.faceID ? "Face ID" : "Touch ID"
-            let reason = "Authenticate with \(biometricType)"
-            
-            localAuthContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason, reply:
-                {(success, error) in
-                    if success {
-                        let keychain = KeychainSwift()
-                        
-                        if keychain.get("email") != nil && keychain.get("password") != nil {
-                            self.keychainEmail = keychain.get("email")!
-                            self.keychainPassword = keychain.get("password")!
-                            
-                            self.authenticate(email: self.keychainEmail, password: self.keychainPassword)
-                        }
-                    }
-                    else {
-                        self.alert = AlertViewController.showAlert(header: "Authentication Failed", body: (error?.localizedDescription)!, action: "Okay")
-                        
-                        self.present(self.alert, animated: true, completion: nil)
-                    }
-            })
-        }
-        else {
-            self.alert = AlertViewController.showAlert(header: "Authentication Failed", body: "Device is not supported for Biometrics Authentication.", action: "Okay")
-            
-            self.present(self.alert, animated: true, completion: nil)
-        }
-    }
-    
     @IBAction func onSignIn(_ sender: HBOButton) {
         var fields: Dictionary<String,HBOTextField> = [:]
         var fieldErrors = [String: String]()
+        
+        let fieldValidator: FieldValidator = FieldValidator()
+        let authManager: AuthManager = AuthManager()
         
         fields = [
             "Email": txtEmailAddress,
@@ -105,44 +57,58 @@ class SignInViewController: UIViewController {
         ]
         
         for (type, field) in fields {
-            let (valid, message) = validator.validate(type: type, textField: field)
+            let (valid, message) = fieldValidator.validate(type: type, textField: field)
             if (!valid) {
                 fieldErrors.updateValue(message, forKey: type)
             }
         }
         
         if fieldErrors.count > 0 {
-            self.alert = AlertViewController.showAlert(header: "Sign In Failed", body: "The following \(fieldErrors.values.joined(separator: ", ")) field(s) are invalid.", action: "Okay")
+            self.alert = NotificationManager.showAlert(header: "Sign In Failed", body: "The following \(fieldErrors.values.joined(separator: ", ")) field(s) are invalid.", action: "Okay")
             
             self.present(self.alert, animated: true, completion: nil)
             
             return
         }
         
-        self.authenticate(email: txtEmailAddress.text!, password: txtPassword.text!)
-    }
-    
-    private func authenticate(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            if error != nil {
-                let alert = AlertViewController.showAlert(header: "Sign In Failed", body: (error?.localizedDescription)!, action: "Okay")
-                
-                self!.present(alert, animated: true, completion: nil)
-                
-                return
+        authManager.signIn(emailField: txtEmailAddress, passwordField: txtPassword) {[weak self] (success, error) in
+            guard let `self` = self else { return }
+            
+            if (error != nil) {
+                self.alert = NotificationManager.showAlert(header: "Sign In Failed", body: error!, action: "Okay")
+                self.present(self.alert, animated: true, completion: nil)
             } else {
-                self!.currentUserEmail = authResult!.user.email!
-                self!.performSegue(withIdentifier: "homeSegue", sender: self)
+                self.transition(identifier: "signInToHome")
             }
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "homeSegue" {
-            let homeViewController = segue.destination as? HomeViewController
-//            homeViewController!.currentUser = currentUserEmail
+    private func canPerformBioMetricsVerification() {
+        let authManager: AuthManager = AuthManager()
+        
+        authManager.currentUser() {[weak self] (success, error) in
+            if error != nil {
+                return
+            } else {
+                authManager.authWithBioMetrics() {[weak self] (success, error) in
+                    guard let `self` = self else { return }
+                    
+                    if (error != nil) {
+                        self.transition(identifier: "signInToMain")
+                        self.alert = NotificationManager.showAlert(header: "Authentication Failed", body: error!, action: "Okay")
+                        
+                        self.present(self.alert, animated: true, completion: nil)
+                    } else {
+                        self.transition(identifier: "signInToHome")
+                    }
+                }
+            }
         }
     }
     
-    
+    private func transition(identifier: String) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: identifier, sender: self)
+        }
+    }
 }

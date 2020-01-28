@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 import FirebaseAuth
 
 class PasswordResetController: UIViewController {
@@ -25,18 +24,21 @@ class PasswordResetController: UIViewController {
     }
     
     @IBAction func onResetPassword(_ sender: HBOButton) {
-        Auth.auth().sendPasswordReset(withEmail: txtEmailAddress.text!) { (error) in
+        let authManager: AuthManager = AuthManager()
+        
+        authManager.sendPasswordReset(emailField: txtEmailAddress) {[weak self] (success, error) in
+            guard let `self` = self else { return }
+            
             var alert: UIViewController
             
             if (error != nil) {
-                alert = AlertViewController.showAlert(header: "Password Reset Failed", body: (error?.localizedDescription)!, action: "Okay")
+                alert = NotificationManager.showAlert(header: "Password Reset Failed", body: error!, action: "Okay")
                 
                 self.present(alert, animated: true, completion: nil)
             } else {
-                alert = AlertViewController.showAlert(header: "Email Sent", body: "We have sent a password reset instructions to your \(self.txtEmailAddress.text!) email address.", action: "Okay")
+                alert = NotificationManager.showAlert(header: "Email Sent", body: "We have sent a password reset instructions to your \(self.txtEmailAddress.text!) email address.", action: "Okay", handler: {(_: UIAlertAction!) in
                 
-                alert = AlertViewController.showAlert(header: "Email Sent", body: "We have sent a password reset instructions to your \(self.txtEmailAddress.text!) email address.", action: "Okay", handler: {(_: UIAlertAction!) in
-                    self.transitionToSignIn()
+                self.transitionToMain()
                 })
                 
                 self.present(alert, animated: true, completion: nil)
@@ -44,7 +46,9 @@ class PasswordResetController: UIViewController {
         }
     }
     
-    private func transitionToSignIn() {
-        TransitionController.transition(selfView: view, sbName: "Main", identifier: "signIn")
+    private func transitionToMain() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "pwResetToMain", sender: self)
+        }
     }
 }

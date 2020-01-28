@@ -24,7 +24,7 @@ class HBOTextField: UITextField {
     }
 }
 
-extension UITextField {
+extension HBOTextField {
     @IBInspectable var placeHolderColor: UIColor? {
         get {
             return self.placeHolderColor
@@ -34,15 +34,27 @@ extension UITextField {
         }
     }
     
-    func setLeftPaddingPoints(_ amount:CGFloat) {
+    func setLeftPaddingPoints(_ amount: CGFloat) {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
         self.leftView = paddingView
         self.leftViewMode = .always
     }
     
-    func setRightPaddingPoints(_ amount:CGFloat) {
+    func setRightPaddingPoints(_ amount: CGFloat) {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
         self.rightView = paddingView
         self.rightViewMode = .always
     }
+    
+//    func textFieldShouldReturn(_ textField: HBOTextField) -> Bool {
+//        let nextTag = textField.tag + 1
+//
+//        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+//            nextResponder.becomeFirstResponder()
+//        } else {
+//            textField.resignFirstResponder()
+//        }
+//
+//        return true
+//    }
 }

@@ -1,14 +1,14 @@
 //
-//  ValidatorController.swift
+//  FieldValidator.swift
 //  hbo-app
 //
 //  Created by Aravinda Rathnayake on 1/18/20.
 //  Copyright © 2020 Aravinda Rathnayake. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class ValidatorController {
+final class FieldValidator {
     func isValidEmail(email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)

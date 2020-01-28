@@ -7,10 +7,8 @@
 //
 
 import UIKit
-
 import FirebaseAuth
 import Firebase
-import KeychainSwift
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var txtFirstName: HBOTextField!
@@ -24,8 +22,6 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var btnRegister: HBOButton!
     @IBOutlet weak var btnSignIn: HBOButton!
-    
-    let validator = ValidatorController()
     
     var alert: UIViewController!
     
@@ -72,6 +68,8 @@ class RegisterViewController: UIViewController {
         
         // TODO: Refer usage comment
         let isChecked = !cbAgreement.isChecked
+        let authManager: AuthManager = AuthManager()
+        let fieldValidator = FieldValidator()
         
         fields = [
             "First Name": txtFirstName,
@@ -83,12 +81,12 @@ class RegisterViewController: UIViewController {
         
         for (type, field) in fields {
             if type == "Password" {
-                let (valid, message) = validator.validate(type: type, textField: field, optionalField: txtConfirmPassword)
+                let (valid, message) = fieldValidator.validate(type: type, textField: field, optionalField: txtConfirmPassword)
                 if (!valid ) {
                     fieldErrors.updateValue(message, forKey: type)
                 }
             } else {
-                let (valid, message) = validator.validate(type: type, textField: field)
+                let (valid, message) = fieldValidator.validate(type: type, textField: field)
                 if (!valid) {
                     fieldErrors.updateValue(message, forKey: type)
                 }
@@ -96,7 +94,7 @@ class RegisterViewController: UIViewController {
         }
         
         if fieldErrors.count > 0 {
-            alert = AlertViewController.showAlert(header: "Registration Failed", body: "The following \(fieldErrors.values.joined(separator: ", ")) field(s) are invalid.", action: "Okay")
+            alert = NotificationManager.showAlert(header: "Registration Failed", body: "The following \(fieldErrors.values.joined(separator: ", ")) field(s) are missing or invalid.", action: "Okay")
             
             self.present(alert, animated: true, completion: nil)
             
@@ -105,47 +103,42 @@ class RegisterViewController: UIViewController {
         
         // FIXME: cbAgreement isChecked method returns wrong state of the checkbox
         if isChecked {
-            alert = AlertViewController.showAlert(header: "Registration Failed", body: "Please read our Privacy Policy and agree to the Terms and Conditions.", action: "Okay")
+            alert = NotificationManager.showAlert(header: "Registration Failed", body: "Please read our Privacy Policy and agree to the Terms and Conditions.", action: "Okay")
             
             self.present(alert, animated: true, completion: nil)
             
             return
         }
         
-        Auth.auth().createUser(withEmail: txtEmailAddress.text!, password: txtPassword.text!) {
-            authResult, error in
+        authManager.createUser(emailField: txtEmailAddress, passwordField: txtPassword) {[weak self] (userData, error) in
+            guard let `self` = self else { return }
+            
             if (error != nil) {
-                self.alert = AlertViewController.showAlert(header: "Registration Failed", body: (error?.localizedDescription)!, action: "Okay")
+                self.alert = NotificationManager.showAlert(header: "Registration Failed", body: error!, action: "Okay")
                 
                 self.present(self.alert, animated: true, completion: nil)
             } else {
-                let database = Firestore.firestore()
+                let databaseManager: DatabaseManager = DatabaseManager()
                 
-                database.collection("users").addDocument(data: [
-                    "uid": authResult!.user.uid,
+                let data: Dictionary<String, String> = [
+                    "uid": userData!.uid,
                     "firstName": self.txtFirstName.text!,
                     "lastName": self.txtLastName.text!,
                     "zipCode": self.txtZipCode.text!
-                ]) { (error) in
-                    if error != nil {
-                        self.alert = AlertViewController.showAlert(header: "Registration Failed", body: (error?.localizedDescription)!, action: "Okay")
-                        
-                        self.present(self.alert, animated: true, completion: nil)
-                        
+                ]
+                
+                databaseManager.insert(collection: "users", data: data) {[weak self] (success, error) in
+                    guard let `self` = self else { return }
+                    
+                    if (error != nil) {
+                        self.alert = NotificationManager.showAlert(header: "Registration Failed", body: error!, action: "Okay")
+                            self.present(self.alert, animated: true, completion: nil)
+                            
                         return
                     } else {
-                        guard let email = self.txtEmailAddress.text,
-                            let password = self.txtPassword.text else { return }
-                        
-                        let keychain = KeychainSwift()
-                        
-                        keychain.set(email, forKey: "email")
-                        keychain.set(password, forKey: "password")
-                        
-                        self.alert = AlertViewController.showAlert(header: "Registration Success", body: "Registration is Successful, Please Sign In.", action: "Okay", handler: {(_: UIAlertAction!) in
+                        self.alert = NotificationManager.showAlert(header: "Registration Success", body: "Registration is Successful, Please Sign In.", action: "Okay", handler: {(_: UIAlertAction!) in
                             self.transitionToMain()
                         })
-                        
                         self.present(self.alert, animated: true, completion: nil)
                     }
                 }
@@ -154,7 +147,9 @@ class RegisterViewController: UIViewController {
     }
     
     private func transitionToMain() {
-        TransitionController.transition(selfView: view, sbName: "Main", identifier: "main")
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "registerToMain", sender: self)
+        }
     }
 }
 

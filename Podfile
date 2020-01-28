@@ -10,7 +10,6 @@ target 'hbo-app' do
     pod 'Firebase/Auth'
     pod 'Firebase'
     pod 'Firebase/Firestore'
-    pod 'KeychainSwift'
     pod 'SwiftyJSON'
 
   target 'hbo-appTests' do
