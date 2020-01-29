@@ -20,14 +20,16 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var cbAgreement: HBOCheckBox!
     
-    @IBOutlet weak var btnRegister: HBOButton!
     @IBOutlet weak var btnSignIn: HBOButton!
     
     var alert: UIViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.configureUIStyles()
+        self.delegateTextFields()
+        self.hideKeyboardWhenTappedAround()
     }
     
     private func configureUIStyles() {
@@ -59,7 +61,15 @@ class RegisterViewController: UIViewController {
         txtZipCode.layer.cornerRadius = CGFloat(10)
         txtZipCode.setLeftPaddingPoints(10)
         txtZipCode.setRightPaddingPoints(10)
-        
+    }
+    
+    private func delegateTextFields() {
+        self.txtFirstName.delegate = self
+        self.txtLastName.delegate = self
+        self.txtEmailAddress.delegate = self
+        self.txtPassword.delegate = self
+        self.txtConfirmPassword.delegate = self
+        self.txtZipCode.delegate = self
     }
     
     @IBAction func onRegister(_ sender: HBOButton!) {
@@ -132,8 +142,8 @@ class RegisterViewController: UIViewController {
                     
                     if (error != nil) {
                         self.alert = NotificationManager.showAlert(header: "Registration Failed", body: error!, action: "Okay")
-                            self.present(self.alert, animated: true, completion: nil)
-                            
+                        self.present(self.alert, animated: true, completion: nil)
+                        
                         return
                     } else {
                         self.alert = NotificationManager.showAlert(header: "Registration Success", body: "Registration is Successful, Please Sign In.", action: "Okay", handler: {(_: UIAlertAction!) in
@@ -152,4 +162,3 @@ class RegisterViewController: UIViewController {
         }
     }
 }
-

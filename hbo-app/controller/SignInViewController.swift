@@ -25,7 +25,10 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.configureUIStyles()
+        self.delegateTextFields()
+        self.hideKeyboardWhenTappedAround()
     }
     
     private func configureUIStyles() {
@@ -42,6 +45,11 @@ class SignInViewController: UIViewController {
         txtPassword.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         txtPassword.setLeftPaddingPoints(10)
         txtPassword.setRightPaddingPoints(10)
+    }
+    
+    private func delegateTextFields() {
+        self.txtEmailAddress.delegate = self
+        self.txtPassword.delegate = self
     }
     
     @IBAction func onSignIn(_ sender: HBOButton) {

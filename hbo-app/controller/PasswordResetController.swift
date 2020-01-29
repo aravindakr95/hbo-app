@@ -14,7 +14,14 @@ class PasswordResetController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.configureUIStyles()
+        self.delegateTextFields()
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    private func delegateTextFields() {
+        self.txtEmailAddress.delegate = self
     }
     
     private func configureUIStyles() {

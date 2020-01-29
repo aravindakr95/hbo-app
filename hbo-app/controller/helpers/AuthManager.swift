@@ -18,10 +18,10 @@ final class AuthManager {
             else { return }
         
         Auth.auth().createUser(withEmail: email, password: password, completion: {(authResult, error) in
-            if authResult?.user != nil {
-                completion(authResult?.user, nil)
-            } else {
+            if error != nil {
                 completion(nil, error?.localizedDescription)
+            } else {
+                completion(authResult?.user, nil)
             }
         })
     }
