@@ -43,8 +43,6 @@ class HomeViewController: UIViewController {
     }
     
     private func transitionToSignIn() {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "homeToMain", sender: self)
-        }
+        TransitionManager.transition(sender: self, identifier: "homeToMain")
     }
 }

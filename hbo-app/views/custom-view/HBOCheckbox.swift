@@ -8,9 +8,9 @@
 
 import UIKit
 
-class HBOCheckBox: UIButton {
-    let selectedCheckBox = UIImage(named: "check-box-selected")
-    let unselectedCheckBox = UIImage(named: "check-box-unselected")
+class HBOCheckbox: UIButton {
+    let selectedCheckBox = UIImage(named: "checkbox-selected")
+    let unselectedCheckBox = UIImage(named: "checkbox-deselected")
     
     var isChecked: Bool = false {
         didSet {

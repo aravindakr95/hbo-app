@@ -1,20 +1,12 @@
 //
-//  MainViewController.swift
+//  ViewControllerExtension.swift
 //  hbo-app
 //
-//  Created by Aravinda Rathnayake on 1/18/20.
+//  Created by Aravinda Rathnayake on 1/30/20.
 //  Copyright © 2020 Aravinda Rathnayake. All rights reserved.
 //
 
 import UIKit
-
-class MainViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationController?.navigationBar.barStyle = UIBarStyle.black
-    }
-}
 
 extension UIViewController : UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {

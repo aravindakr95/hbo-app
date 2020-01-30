@@ -53,12 +53,12 @@ final class AuthManager {
     }
     
     public func currentUser(completion: @escaping (_ success: User?, _ error: String?) -> Void) {
-        let currentUser = Auth.auth().currentUser
+        let user = Auth.auth().currentUser
         
-        if currentUser != nil {
-            completion(currentUser!, nil)
+        if user != nil {
+            completion(user!, nil)
         } else {
-            completion(nil, "User expired or invalid")
+            completion(nil, "Current user expired or invalid.")
         }
     }
     
@@ -67,7 +67,7 @@ final class AuthManager {
             let email = emailField.text else { return }
         
         Auth.auth().sendPasswordReset(withEmail: email, completion: {error in
-            if (error != nil) {
+            if error != nil {
                 completion(nil, error?.localizedDescription)
             } else {
                 completion(true, nil)

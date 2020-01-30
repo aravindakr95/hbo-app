@@ -60,7 +60,7 @@
                     </view>
                     <connections>
                         <outlet property="txtEmailAddress" destination="103-7M-rN0" id="VJg-Ih-tpZ"/>
-                        <segue destination="BgB-6s-vuy" kind="show" identifier="pwResetToMain" id="TFi-kj-7Mw"/>
+                        <segue destination="BgB-6s-vuy" kind="show" identifier="pwResetToMain" id="c3i-1a-1Ml"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gqx-VP-hJH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -108,22 +108,14 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAg-4p-Brn" customClass="HBOButton" customModule="hbo_app" customModuleProvider="target">
                                 <rect key="frame" x="20" y="358" width="374" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.19912401769999999" green="0.63589063670000001" blue="0.83071567359999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.63529411764705879" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="onSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sIt-d4-SgS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4z-IQ-xPH">
-                                <rect key="frame" x="126" y="433" width="163" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="18"/>
-                                <state key="normal" title="Forgot Password?"/>
-                                <connections>
-                                    <segue destination="Zxm-IG-Z4p" kind="show" identifier="signInToPWReset" id="RcE-wr-tFv"/>
+                                    <segue destination="wWo-FS-kpi" kind="show" identifier="signInToHome" id="t4t-yG-RDr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZM-Di-WOY">
@@ -138,17 +130,26 @@
                                     <action selector="subscriptionButton:" destination="0wA-wr-fkR" eventType="touchUpInside" id="Mz0-Cr-tsP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4z-IQ-xPH" customClass="HBOButton" customModule="hbo_app" customModuleProvider="target">
+                                <rect key="frame" x="126" y="433" width="163" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="18"/>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.63529411764705879" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sign In" id="rv0-2o-WIv"/>
                     <connections>
+                        <outlet property="btnSignIn" destination="wAg-4p-Brn" id="Xia-x3-ea2"/>
                         <outlet property="subscriptionButton" destination="2ZM-Di-WOY" id="LYo-fN-Vru"/>
                         <outlet property="txtEmailAddress" destination="BO2-9N-QhX" id="UaU-1W-qfs"/>
                         <outlet property="txtPassword" destination="4ZQ-Rn-6KR" id="hNn-Hg-R3t"/>
-                        <segue destination="wWo-FS-kpi" kind="show" identifier="signInToHome" id="OeN-a6-l4M"/>
-                        <segue destination="BgB-6s-vuy" kind="show" identifier="signInToMain" id="fgi-db-7n9"/>
+                        <segue destination="Zxm-IG-Z4p" kind="show" identifier="signInToPWReset" id="6nq-Pj-R23"/>
+                        <segue destination="BgB-6s-vuy" kind="show" identifier="signInToMain" id="Csl-7N-6Ly"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -156,10 +157,10 @@
             </objects>
             <point key="canvasLocation" x="2191" y="474"/>
         </scene>
-        <!--Registration-->
+        <!--Register-->
         <scene sceneID="8e8-QA-GrY">
             <objects>
-                <viewController storyboardIdentifier="registration" title="Registration" id="Lkq-px-ZF1" customClass="RegisterViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registration" title="Register" id="Lkq-px-ZF1" customClass="RegisterViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2aC-Iq-JT7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,13 +169,6 @@
                                 <rect key="frame" x="102" y="52" width="210" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter your information below. Your email address and password will become part of your HBO NOW profile." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xII-Wf-nv2">
-                                <rect key="frame" x="21" y="106" width="374" height="95"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jb5-AF-Qk0" customClass="HBOTextField" customModule="hbo_app" customModuleProvider="target">
                                 <rect key="frame" x="21" y="209" width="187" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -256,7 +250,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJj-u0-STZ" customClass="HBOButton" customModule="hbo_app" customModuleProvider="target">
                                 <rect key="frame" x="20" y="626" width="374" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.63529411764705879" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                 <state key="normal" title="Register for HBO NOW℠">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -265,10 +259,10 @@
                                     <action selector="onRegister:" destination="Lkq-px-ZF1" eventType="touchUpInside" id="vKu-Tx-QG3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8b6-Bo-WjQ" customClass="HBOCheckBox" customModule="hbo_app" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8b6-Bo-WjQ" customClass="HBOCheckbox" customModule="hbo_app" customModuleProvider="target">
                                 <rect key="frame" x="21" y="586" width="19" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="check-box-unselected"/>
+                                <state key="normal" image="checkbox-deselected"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjU-sX-e9h">
                                 <rect key="frame" x="48" y="549" width="346" height="95"/>
@@ -328,22 +322,31 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fg7-Uc-A9x">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fg7-Uc-A9x" customClass="HBOButton" customModule="hbo_app" customModuleProvider="target">
                                 <rect key="frame" x="329" y="669" width="51" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
-                                <state key="normal" title="Sign-In"/>
+                                <state key="normal" title="Sign-In">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.63529411764705879" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="registerToSignIn" id="8Te-H8-4Eu"/>
+                                    <action selector="onSignIn:" destination="Lkq-px-ZF1" eventType="touchUpInside" id="JbT-Tq-nCU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter your information below. Your email address and password will become part of your HBO NOW profile." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xII-Wf-nv2">
+                                <rect key="frame" x="21" y="114" width="374" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="an9-MQ-Dv4"/>
                     </view>
                     <navigationItem key="navigationItem" title="Register for HBO NOW℠" id="FF0-AC-ZQM"/>
                     <connections>
-                        <outlet property="btnSignIn" destination="fg7-Uc-A9x" id="Uh8-PM-iLU"/>
+                        <outlet property="btnRegister" destination="bJj-u0-STZ" id="sD9-px-nwV"/>
                         <outlet property="cbAgreement" destination="8b6-Bo-WjQ" id="0UB-dd-wDI"/>
                         <outlet property="txtConfirmPassword" destination="G2I-6J-L6d" id="4GG-aq-suh"/>
                         <outlet property="txtEmailAddress" destination="mKf-1T-Sgb" id="pX1-xZ-OFA"/>
@@ -351,12 +354,12 @@
                         <outlet property="txtLastName" destination="1rL-9G-rMU" id="crk-MV-rgo"/>
                         <outlet property="txtPassword" destination="y08-4H-Fus" id="EMO-9m-s52"/>
                         <outlet property="txtZipCode" destination="UMc-Pe-NvW" id="81H-oQ-Fvk"/>
-                        <segue destination="BgB-6s-vuy" kind="show" identifier="registerToMain" id="pF4-df-V8z"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="registerToSignIn" id="zE1-ot-mFV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwc-J9-rh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1693" y="-548"/>
+            <point key="canvasLocation" x="1692.753623188406" y="-548.64130434782612"/>
         </scene>
         <!--Main-->
         <scene sceneID="vsA-dj-psE">
@@ -397,7 +400,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Lkq-px-ZF1" kind="show" identifier="mainToRegister" id="YiN-Yf-fkg"/>
+                                    <action selector="onRegister:" destination="BgB-6s-vuy" eventType="touchUpInside" id="cZU-8G-6LH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEZ-mr-llu" customClass="HBOButton" customModule="hbo_app" customModuleProvider="target">
@@ -409,7 +412,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="mainToSignIn" id="Npe-bq-8um"/>
+                                    <action selector="onSignIn:" destination="BgB-6s-vuy" eventType="touchUpInside" id="VZR-88-ADx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -417,6 +420,10 @@
                         <viewLayoutGuide key="safeArea" id="lnF-Oe-fqE"/>
                     </view>
                     <navigationItem key="navigationItem" id="eoI-ed-KVj"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="mainToSignIn" id="pId-Ek-P3D"/>
+                        <segue destination="Lkq-px-ZF1" kind="show" identifier="mainToRegister" id="ySg-Ul-ufx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOH-nZ-vLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -467,7 +474,7 @@
                         <viewLayoutGuide key="safeArea" id="yrf-u2-fCI"/>
                     </view>
                     <connections>
-                        <segue destination="BgB-6s-vuy" kind="show" identifier="homeToMain" id="tUT-QV-HzK"/>
+                        <segue destination="BgB-6s-vuy" kind="show" identifier="homeToMain" id="ekQ-RN-jVf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tO-3y-xS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -476,12 +483,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="check-box-unselected" width="64" height="64"/>
+        <image name="checkbox-deselected" width="64" height="64"/>
         <image name="front-logo" width="1280" height="720"/>
         <image name="hbo-logo" width="1039" height="262"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pF4-df-V8z"/>
-        <segue reference="8Te-H8-4Eu"/>
+        <segue reference="Csl-7N-6Ly"/>
+        <segue reference="zE1-ot-mFV"/>
     </inferredMetricsTieBreakers>
 </document>

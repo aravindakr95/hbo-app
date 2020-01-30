@@ -23,8 +23,11 @@
 		707897BD23D54115009BF57A /* FieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897B723D54115009BF57A /* FieldValidator.swift */; };
 		707897BF23D54115009BF57A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897B923D54115009BF57A /* MainViewController.swift */; };
 		707897C123D54115009BF57A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897BB23D54115009BF57A /* NotificationManager.swift */; };
-		707897C323D541E6009BF57A /* HBOCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897C223D541E6009BF57A /* HBOCheckBox.swift */; };
+		707897C323D541E6009BF57A /* HBOCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897C223D541E6009BF57A /* HBOCheckbox.swift */; };
 		70B18C5B23DE4C7900AD443E /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B18C5A23DE4C7900AD443E /* AuthManager.swift */; };
+		70C02CFF23E2868600CF691B /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C02CFE23E2868600CF691B /* ViewController+Extension.swift */; };
+		70C02D0123E2880900CF691B /* HBOTextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C02D0023E2880900CF691B /* HBOTextFieldExtension.swift */; };
+		70C02D0323E29EB000CF691B /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C02D0223E29EB000CF691B /* TransitionManager.swift */; };
 		70CCCDAA23DE8D3E0044C6A7 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CCCDA523DE8D3E0044C6A7 /* home.png */; };
 		70CCCDAB23DE8D3E0044C6A7 /* reset-password.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CCCDA623DE8D3E0044C6A7 /* reset-password.png */; };
 		70CCCDAC23DE8D3E0044C6A7 /* signIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CCCDA723DE8D3E0044C6A7 /* signIn.png */; };
@@ -80,8 +83,11 @@
 		707897B723D54115009BF57A /* FieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldValidator.swift; sourceTree = "<group>"; };
 		707897B923D54115009BF57A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		707897BB23D54115009BF57A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		707897C223D541E6009BF57A /* HBOCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBOCheckBox.swift; sourceTree = "<group>"; };
+		707897C223D541E6009BF57A /* HBOCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBOCheckbox.swift; sourceTree = "<group>"; };
 		70B18C5A23DE4C7900AD443E /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		70C02CFE23E2868600CF691B /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		70C02D0023E2880900CF691B /* HBOTextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HBOTextFieldExtension.swift; sourceTree = "<group>"; };
+		70C02D0223E29EB000CF691B /* TransitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		70CCCDA523DE8D3E0044C6A7 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		70CCCDA623DE8D3E0044C6A7 /* reset-password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reset-password.png"; sourceTree = "<group>"; };
 		70CCCDA723DE8D3E0044C6A7 /* signIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signIn.png; sourceTree = "<group>"; };
@@ -136,10 +142,9 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		701C9AD323D08FA9004C18D1 /* controller */ = {
+		701C9AD323D08FA9004C18D1 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				702CEB0C23E0DC26006146EA /* helpers */,
 				70590C1123CB81CB0072208C /* AppDelegate.swift */,
 				707897B923D54115009BF57A /* MainViewController.swift */,
 				70590C1323CB81CB0072208C /* RegisterViewController.swift */,
@@ -147,34 +152,31 @@
 				7039FB9223DC9843006A9D1E /* HomeViewController.swift */,
 				70FB2B3523DD559300A594DE /* PasswordResetController.swift */,
 			);
-			path = controller;
+			path = controllers;
 			sourceTree = "<group>";
 		};
-		701C9AD423D09161004C18D1 /* view */ = {
+		701C9AD423D09161004C18D1 /* views */ = {
 			isa = PBXGroup;
 			children = (
 				7052EB9523D192130056B0FA /* custom-view */,
 				70590C1A23CB81CF0072208C /* LaunchScreen.storyboard */,
 				70590C1523CB81CB0072208C /* Main.storyboard */,
 			);
-			path = view;
+			path = views;
 			sourceTree = "<group>";
 		};
-		702CEB0C23E0DC26006146EA /* helpers */ = {
+		702CEB0C23E0DC26006146EA /* utilities */ = {
 			isa = PBXGroup;
 			children = (
 				707897B723D54115009BF57A /* FieldValidator.swift */,
-				707897BB23D54115009BF57A /* NotificationManager.swift */,
-				70B18C5A23DE4C7900AD443E /* AuthManager.swift */,
-				702CEB0A23E09AE5006146EA /* DatabaseManager.swift */,
 			);
-			path = helpers;
+			path = utilities;
 			sourceTree = "<group>";
 		};
 		7052EB9523D192130056B0FA /* custom-view */ = {
 			isa = PBXGroup;
 			children = (
-				707897C223D541E6009BF57A /* HBOCheckBox.swift */,
+				707897C223D541E6009BF57A /* HBOCheckbox.swift */,
 				70590C4023CB8D930072208C /* HBOButton.swift */,
 				7052EB9323D168D00056B0FA /* HBOTextField.swift */,
 			);
@@ -207,9 +209,12 @@
 		70590C1023CB81CB0072208C /* hbo-app */ = {
 			isa = PBXGroup;
 			children = (
+				70C02CFD23E2866300CF691B /* extensions */,
+				702CEB0C23E0DC26006146EA /* utilities */,
+				70CE0CDC23E2199F008C0058 /* managers */,
 				70E2217B23D1059E00889039 /* supporting-flies */,
-				701C9AD423D09161004C18D1 /* view */,
-				701C9AD323D08FA9004C18D1 /* controller */,
+				701C9AD423D09161004C18D1 /* views */,
+				701C9AD323D08FA9004C18D1 /* controllers */,
 				70590C1823CB81CF0072208C /* Assets.xcassets */,
 			);
 			path = "hbo-app";
@@ -233,6 +238,15 @@
 			path = "hbo-appUITests";
 			sourceTree = "<group>";
 		};
+		70C02CFD23E2866300CF691B /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				70C02CFE23E2868600CF691B /* ViewController+Extension.swift */,
+				70C02D0023E2880900CF691B /* HBOTextFieldExtension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		70CCCDA423DE8B760044C6A7 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +257,17 @@
 				70CCCDA923DE8D3E0044C6A7 /* registration.png */,
 			);
 			path = Screenshots;
+			sourceTree = "<group>";
+		};
+		70CE0CDC23E2199F008C0058 /* managers */ = {
+			isa = PBXGroup;
+			children = (
+				70C02D0223E29EB000CF691B /* TransitionManager.swift */,
+				707897BB23D54115009BF57A /* NotificationManager.swift */,
+				70B18C5A23DE4C7900AD443E /* AuthManager.swift */,
+				702CEB0A23E09AE5006146EA /* DatabaseManager.swift */,
+			);
+			path = managers;
 			sourceTree = "<group>";
 		};
 		70E2217B23D1059E00889039 /* supporting-flies */ = {
@@ -516,15 +541,18 @@
 			files = (
 				70590C1423CB81CB0072208C /* RegisterViewController.swift in Sources */,
 				702CEB0B23E09AE5006146EA /* DatabaseManager.swift in Sources */,
+				70C02CFF23E2868600CF691B /* ViewController+Extension.swift in Sources */,
+				70C02D0123E2880900CF691B /* HBOTextFieldExtension.swift in Sources */,
 				70584EF523CCEF3C00FA48EA /* SignInViewController.swift in Sources */,
 				707897BF23D54115009BF57A /* MainViewController.swift in Sources */,
+				70C02D0323E29EB000CF691B /* TransitionManager.swift in Sources */,
 				7052EB9423D168D00056B0FA /* HBOTextField.swift in Sources */,
 				70B18C5B23DE4C7900AD443E /* AuthManager.swift in Sources */,
 				70590C1223CB81CB0072208C /* AppDelegate.swift in Sources */,
 				707897C123D54115009BF57A /* NotificationManager.swift in Sources */,
 				70590C4123CB8D930072208C /* HBOButton.swift in Sources */,
 				70FB2B3623DD559300A594DE /* PasswordResetController.swift in Sources */,
-				707897C323D541E6009BF57A /* HBOCheckBox.swift in Sources */,
+				707897C323D541E6009BF57A /* HBOCheckbox.swift in Sources */,
 				707897BD23D54115009BF57A /* FieldValidator.swift in Sources */,
 				7039FB9323DC9843006A9D1E /* HomeViewController.swift in Sources */,
 			);

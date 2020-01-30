@@ -15,6 +15,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var txtEmailAddress: HBOTextField!
     @IBOutlet weak var txtPassword: HBOTextField!
     
+    @IBOutlet weak var btnSignIn: HBOButton!
+    
     var alert: UIViewController!
     
     let localAuthContext = LAContext()
@@ -27,7 +29,7 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         self.configureUIStyles()
-        self.delegateTextFields()
+        self.delegateFields()
         self.hideKeyboardWhenTappedAround()
     }
     
@@ -47,13 +49,13 @@ class SignInViewController: UIViewController {
         txtPassword.setRightPaddingPoints(10)
     }
     
-    private func delegateTextFields() {
+    private func delegateFields() {
         self.txtEmailAddress.delegate = self
         self.txtPassword.delegate = self
     }
     
     @IBAction func onSignIn(_ sender: HBOButton) {
-        var fields: Dictionary<String,HBOTextField> = [:]
+        var fields: Dictionary<String, HBOTextField> = [:]
         var fieldErrors = [String: String]()
         
         let fieldValidator: FieldValidator = FieldValidator()
@@ -79,6 +81,8 @@ class SignInViewController: UIViewController {
             return
         }
         
+        self.btnSignIn.showLoading()
+        
         authManager.signIn(emailField: txtEmailAddress, passwordField: txtPassword) {[weak self] (success, error) in
             guard let `self` = self else { return }
             
@@ -88,6 +92,8 @@ class SignInViewController: UIViewController {
             } else {
                 self.transition(identifier: "signInToHome")
             }
+            
+            self.btnSignIn.hideLoading()
         }
     }
     
@@ -115,8 +121,7 @@ class SignInViewController: UIViewController {
     }
     
     private func transition(identifier: String) {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: identifier, sender: self)
-        }
+        print(identifier)
+        TransitionManager.transition(sender: self, identifier: identifier)
     }
 }

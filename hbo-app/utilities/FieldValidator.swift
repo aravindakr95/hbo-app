@@ -60,7 +60,4 @@ final class FieldValidator {
         
         return validateData
     }
-    
-    
-    
 }

@@ -54,8 +54,6 @@ class PasswordResetController: UIViewController {
     }
     
     private func transitionToMain() {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "pwResetToMain", sender: self)
-        }
+        TransitionManager.transition(sender: self, identifier: "pwResetToMain")
     }
 }

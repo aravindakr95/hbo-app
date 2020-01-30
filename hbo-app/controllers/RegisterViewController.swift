@@ -18,9 +18,9 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var txtConfirmPassword: HBOTextField!
     @IBOutlet weak var txtZipCode: HBOTextField!
     
-    @IBOutlet weak var cbAgreement: HBOCheckBox!
+    @IBOutlet weak var btnRegister: HBOButton!
     
-    @IBOutlet weak var btnSignIn: HBOButton!
+    @IBOutlet weak var cbAgreement: HBOCheckbox!
     
     var alert: UIViewController!
     
@@ -28,7 +28,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         
         self.configureUIStyles()
-        self.delegateTextFields()
+        self.delegateFields()
         self.hideKeyboardWhenTappedAround()
     }
     
@@ -63,7 +63,7 @@ class RegisterViewController: UIViewController {
         txtZipCode.setRightPaddingPoints(10)
     }
     
-    private func delegateTextFields() {
+    private func delegateFields() {
         self.txtFirstName.delegate = self
         self.txtLastName.delegate = self
         self.txtEmailAddress.delegate = self
@@ -72,8 +72,12 @@ class RegisterViewController: UIViewController {
         self.txtZipCode.delegate = self
     }
     
-    @IBAction func onRegister(_ sender: HBOButton!) {
-        var fields: Dictionary<String,HBOTextField> = [:]
+    @IBAction func onSignIn(_ sender: HBOButton) {
+        self.transitionToSignIn()
+    }
+    
+    @IBAction func onRegister(_ sender: HBOButton) {
+        var fields: Dictionary<String, HBOTextField> = [:]
         var fieldErrors = [String: String]()
         
         // TODO: Refer usage comment
@@ -120,6 +124,8 @@ class RegisterViewController: UIViewController {
             return
         }
         
+        btnRegister.showLoading()
+        
         authManager.createUser(emailField: txtEmailAddress, passwordField: txtPassword) {[weak self] (userData, error) in
             guard let `self` = self else { return }
             
@@ -147,18 +153,18 @@ class RegisterViewController: UIViewController {
                         return
                     } else {
                         self.alert = NotificationManager.showAlert(header: "Registration Success", body: "Registration is Successful, Please Sign In.", action: "Okay", handler: {(_: UIAlertAction!) in
-                            self.transitionToMain()
+                            self.transitionToSignIn()
                         })
                         self.present(self.alert, animated: true, completion: nil)
                     }
                 }
             }
+            
+            self.btnRegister.hideLoading()
         }
     }
     
-    private func transitionToMain() {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "registerToMain", sender: self)
-        }
+    private func transitionToSignIn() {
+        TransitionManager.transition(sender: self, identifier: "registerToSignIn")
     }
 }
