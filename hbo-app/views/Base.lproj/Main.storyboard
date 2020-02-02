@@ -13,7 +13,7 @@
         <!--Password Reset-->
         <scene sceneID="fcA-xw-zbd">
             <objects>
-                <viewController title="Password Reset" id="Zxm-IG-Z4p" customClass="PasswordResetController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pwResetVC" title="Password Reset" id="Zxm-IG-Z4p" customClass="PasswordResetController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MNc-Y9-hhr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,18 +59,18 @@
                         <viewLayoutGuide key="safeArea" id="eUD-YH-4GG"/>
                     </view>
                     <connections>
+                        <outlet property="btnResetPW" destination="Hzx-jW-6qV" id="jOG-ea-BjO"/>
                         <outlet property="txtEmailAddress" destination="103-7M-rN0" id="VJg-Ih-tpZ"/>
-                        <segue destination="BgB-6s-vuy" kind="show" identifier="pwResetToMain" id="c3i-1a-1Ml"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gqx-VP-hJH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="183" y="1268"/>
+            <point key="canvasLocation" x="2229" y="1632"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="signIn" id="BYZ-38-t0r" customClass="SignInViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signInVC" title="Sign In" id="BYZ-38-t0r" customClass="SignInViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,7 +115,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sIt-d4-SgS"/>
-                                    <segue destination="wWo-FS-kpi" kind="show" identifier="signInToHome" id="t4t-yG-RDr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZM-Di-WOY">
@@ -137,6 +136,9 @@
                                 <state key="normal" title="Forgot Password?">
                                     <color key="titleColor" red="0.20000000000000001" green="0.63529411764705879" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onForgotPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xry-iF-ySs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -148,19 +150,19 @@
                         <outlet property="subscriptionButton" destination="2ZM-Di-WOY" id="LYo-fN-Vru"/>
                         <outlet property="txtEmailAddress" destination="BO2-9N-QhX" id="UaU-1W-qfs"/>
                         <outlet property="txtPassword" destination="4ZQ-Rn-6KR" id="hNn-Hg-R3t"/>
-                        <segue destination="Zxm-IG-Z4p" kind="show" identifier="signInToPWReset" id="6nq-Pj-R23"/>
-                        <segue destination="BgB-6s-vuy" kind="show" identifier="signInToMain" id="Csl-7N-6Ly"/>
+                        <segue destination="Zxm-IG-Z4p" kind="show" identifier="signInToPWReset" id="IQd-o9-joT"/>
+                        <segue destination="wWo-FS-kpi" kind="show" identifier="signInToHome" id="DFn-qM-aHV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="0wA-wr-fkR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2191" y="474"/>
+            <point key="canvasLocation" x="2230" y="855"/>
         </scene>
         <!--Register-->
         <scene sceneID="8e8-QA-GrY">
             <objects>
-                <viewController storyboardIdentifier="registration" title="Register" id="Lkq-px-ZF1" customClass="RegisterViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerVC" title="Register" id="Lkq-px-ZF1" customClass="RegisterViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2aC-Iq-JT7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -347,6 +349,7 @@
                     <navigationItem key="navigationItem" title="Register for HBO NOW℠" id="FF0-AC-ZQM"/>
                     <connections>
                         <outlet property="btnRegister" destination="bJj-u0-STZ" id="sD9-px-nwV"/>
+                        <outlet property="btnSignIn" destination="fg7-Uc-A9x" id="m2C-e5-jLt"/>
                         <outlet property="cbAgreement" destination="8b6-Bo-WjQ" id="0UB-dd-wDI"/>
                         <outlet property="txtConfirmPassword" destination="G2I-6J-L6d" id="4GG-aq-suh"/>
                         <outlet property="txtEmailAddress" destination="mKf-1T-Sgb" id="pX1-xZ-OFA"/>
@@ -359,12 +362,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwc-J9-rh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1692.753623188406" y="-548.64130434782612"/>
+            <point key="canvasLocation" x="2229" y="11"/>
         </scene>
         <!--Main-->
         <scene sceneID="vsA-dj-psE">
             <objects>
-                <viewController storyboardIdentifier="main" title="Main" id="BgB-6s-vuy" customClass="MainViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainVC" title="Main" id="BgB-6s-vuy" customClass="MainViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jdo-qT-PFd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -421,13 +424,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="eoI-ed-KVj"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="mainToSignIn" id="pId-Ek-P3D"/>
-                        <segue destination="Lkq-px-ZF1" kind="show" identifier="mainToRegister" id="ySg-Ul-ufx"/>
+                        <segue destination="Lkq-px-ZF1" kind="show" identifier="mainToRegister" id="dqt-KL-oOu"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="mainToSignIn" id="Wsr-3l-6Dc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOH-nZ-vLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="935" y="315"/>
+            <point key="canvasLocation" x="1086" y="474"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rs4-L0-tYQ">
@@ -452,12 +455,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxZ-UP-iQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-159" y="315"/>
+            <point key="canvasLocation" x="114" y="474"/>
         </scene>
         <!--Home-->
         <scene sceneID="I8a-yD-Xko">
             <objects>
-                <viewController storyboardIdentifier="home" title="Home" id="wWo-FS-kpi" customClass="HomeViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeVC" title="Home" id="wWo-FS-kpi" customClass="HomeViewController" customModule="hbo_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ij7-nl-rOT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -473,13 +476,17 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="yrf-u2-fCI"/>
                     </view>
-                    <connections>
-                        <segue destination="BgB-6s-vuy" kind="show" identifier="homeToMain" id="ekQ-RN-jVf"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="srW-un-305">
+                        <barButtonItem key="rightBarButtonItem" title="Sign out" id="baw-mg-JiA">
+                            <connections>
+                                <action selector="onSignout:" destination="wWo-FS-kpi" id="3as-rn-TKw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tO-3y-xS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3293" y="-220"/>
+            <point key="canvasLocation" x="3225" y="474"/>
         </scene>
     </scenes>
     <resources>
@@ -488,7 +495,6 @@
         <image name="hbo-logo" width="1039" height="262"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Csl-7N-6Ly"/>
         <segue reference="zE1-ot-mFV"/>
     </inferredMetricsTieBreakers>
 </document>

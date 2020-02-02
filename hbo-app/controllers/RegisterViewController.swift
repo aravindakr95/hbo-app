@@ -19,6 +19,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var txtZipCode: HBOTextField!
     
     @IBOutlet weak var btnRegister: HBOButton!
+    @IBOutlet weak var btnSignIn: HBOButton!
     
     @IBOutlet weak var cbAgreement: HBOCheckbox!
     
@@ -152,6 +153,8 @@ class RegisterViewController: UIViewController {
                         
                         return
                     } else {
+                        UserDefaults.standard.set(false, forKey: "isAuthorized")
+                        
                         self.alert = NotificationManager.showAlert(header: "Registration Success", body: "Registration is Successful, Please Sign In.", action: "Okay", handler: {(_: UIAlertAction!) in
                             self.transitionToSignIn()
                         })
@@ -159,12 +162,13 @@ class RegisterViewController: UIViewController {
                     }
                 }
             }
-            
             self.btnRegister.hideLoading()
         }
     }
     
     private func transitionToSignIn() {
-        TransitionManager.transition(sender: self, identifier: "registerToSignIn")
+        DispatchQueue.main.async {
+            TransitionManager.pushViewController(storyBoardName: "Main", vcIdentifier: "signInVC", context: self.navigationController!)
+        }
     }
 }

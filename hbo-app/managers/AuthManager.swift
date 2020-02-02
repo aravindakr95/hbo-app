@@ -34,6 +34,7 @@ final class AuthManager {
         
         Auth.auth().signIn(withEmail: email, password: password, completion: {(authResult, error) in
             if error != nil {
+                
                 completion(nil, error?.localizedDescription)
             } else {
                 completion(true, nil)

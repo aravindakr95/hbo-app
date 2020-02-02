@@ -11,6 +11,7 @@ import FirebaseAuth
 
 class PasswordResetController: UIViewController {
     @IBOutlet weak var txtEmailAddress: HBOTextField!
+    @IBOutlet weak var btnResetPW: HBOButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,8 @@ class PasswordResetController: UIViewController {
     @IBAction func onResetPassword(_ sender: HBOButton) {
         let authManager: AuthManager = AuthManager()
         
+        self.btnResetPW.showLoading()
+        
         authManager.sendPasswordReset(emailField: txtEmailAddress) {[weak self] (success, error) in
             guard let `self` = self else { return }
             
@@ -44,16 +47,19 @@ class PasswordResetController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             } else {
                 alert = NotificationManager.showAlert(header: "Email Sent", body: "We have sent a password reset instructions to your \(self.txtEmailAddress.text!) email address.", action: "Okay", handler: {(_: UIAlertAction!) in
-                
-                self.transitionToMain()
+                    
+                    self.transitionToMain()
                 })
                 
                 self.present(alert, animated: true, completion: nil)
             }
+            self.btnResetPW.hideLoading()
         }
     }
     
     private func transitionToMain() {
-        TransitionManager.transition(sender: self, identifier: "pwResetToMain")
+        DispatchQueue.main.async {
+            TransitionManager.popToRootViewController(context: self.navigationController!)
+        }
     }
 }

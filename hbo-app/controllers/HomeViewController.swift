@@ -12,15 +12,14 @@ import FirebaseAuth
 class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureUIStyles()
     }
     
-    @objc private func onSignOut() {
+    @IBAction func onSignout(_ sender: UIBarButtonItem) {
         let authManager: AuthManager = AuthManager()
         
         var alert: UIViewController!
         
-        authManager.signOut() {[weak self] (success, error) in
+        authManager.signOut {[weak self] (success, error) in
             guard let `self` = self else { return }
             
             if error != nil {
@@ -28,8 +27,10 @@ class HomeViewController: UIViewController {
                 
                 self.present(alert, animated: true, completion: nil)
             } else {
+                UserDefaults.standard.set(false, forKey: "isAuthorized")
+                
                 alert = NotificationManager.showAlert(header: "Sign out Success", body: "Sign out Successful, Please re-login.", action: "Okay", handler: {(_: UIAlertAction!) in
-                    self.transitionToSignIn()
+                    self.transitionToMain()
                 })
                 
                 self.present(alert, animated: true, completion: nil)
@@ -37,12 +38,9 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private func configureUIStyles() {
-        let btnSignOut = UIBarButtonItem(title: "Sign out" , style: .plain, target: self, action: #selector(onSignOut))
-        self.navigationItem.rightBarButtonItem = btnSignOut
-    }
-    
-    private func transitionToSignIn() {
-        TransitionManager.transition(sender: self, identifier: "homeToMain")
+    private func transitionToMain() {
+        DispatchQueue.main.async {
+            TransitionManager.popToRootViewController(context: self.navigationController!)
+        }
     }
 }

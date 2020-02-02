@@ -19,10 +19,17 @@ class SignInViewController: UIViewController {
     
     var alert: UIViewController!
     
-    let localAuthContext = LAContext()
+    let localAuthContext: LAContext = LAContext()
+    let authManager: AuthManager = AuthManager()
     
     override func viewDidAppear(_ animated: Bool) {
-        self.canPerformBioMetricsVerification()
+        let isAuthorized = UserDefaults.standard.bool(forKey: "isAuthorized")
+        
+        AuthManager().currentUser {[weak self] (user, error) in
+            if error == nil && isAuthorized {
+                self!.canPerformBioMetricsVerification()
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -90,38 +97,41 @@ class SignInViewController: UIViewController {
                 self.alert = NotificationManager.showAlert(header: "Sign In Failed", body: error!, action: "Okay")
                 self.present(self.alert, animated: true, completion: nil)
             } else {
-                self.transition(identifier: "signInToHome")
+                UserDefaults.standard.set(true, forKey: "isAuthorized")
+                self.transition(identifier: "homeVC")
             }
             
             self.btnSignIn.hideLoading()
         }
     }
     
+    @IBAction func onForgotPassword(_ sender: HBOButton) {
+        self.transition(identifier: "pwResetVC")
+    }
+    
     private func canPerformBioMetricsVerification() {
-        let authManager: AuthManager = AuthManager()
-        
-        authManager.currentUser() {[weak self] (success, error) in
-            if error != nil {
-                return
-            } else {
-                authManager.authWithBioMetrics() {[weak self] (success, error) in
-                    guard let `self` = self else { return }
-                    
-                    if (error != nil) {
-                        self.transition(identifier: "signInToMain")
-                        self.alert = NotificationManager.showAlert(header: "Authentication Failed", body: error!, action: "Okay")
-                        
-                        self.present(self.alert, animated: true, completion: nil)
-                    } else {
-                        self.transition(identifier: "signInToHome")
-                    }
+        self.authManager.authWithBioMetrics {[weak self] (success, error) in
+            guard let `self` = self else { return }
+            
+            if (error != nil) {
+                UserDefaults.standard.set(false, forKey: "isAuthorized")
+                
+                DispatchQueue.main.async {
+                    TransitionManager.popToRootViewController(context: self.navigationController!)
                 }
+                
+                self.alert = NotificationManager.showAlert(header: "Authentication Failed", body: error!, action: "Okay")
+                self.present(self.alert, animated: true, completion: nil)
+            } else {
+                
+                self.transition(identifier: "homeVC")
             }
         }
     }
     
     private func transition(identifier: String) {
-        print(identifier)
-        TransitionManager.transition(sender: self, identifier: identifier)
+        DispatchQueue.main.async {
+            TransitionManager.pushViewController(storyBoardName: "Main", vcIdentifier: identifier, context: self.navigationController!)
+        }
     }
 }
