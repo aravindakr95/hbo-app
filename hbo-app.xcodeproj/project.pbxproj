@@ -26,7 +26,7 @@
 		707897C123D54115009BF57A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897BB23D54115009BF57A /* NotificationManager.swift */; };
 		707897C323D541E6009BF57A /* HBOCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897C223D541E6009BF57A /* HBOCheckbox.swift */; };
 		70B18C5B23DE4C7900AD443E /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B18C5A23DE4C7900AD443E /* AuthManager.swift */; };
-		70C02CFF23E2868600CF691B /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C02CFE23E2868600CF691B /* ViewController+Extension.swift */; };
+		70C02CFF23E2868600CF691B /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C02CFE23E2868600CF691B /* ViewControllerExtension.swift */; };
 		70C02D0123E2880900CF691B /* HBOTextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C02D0023E2880900CF691B /* HBOTextFieldExtension.swift */; };
 		70C02D0323E29EB000CF691B /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C02D0223E29EB000CF691B /* TransitionManager.swift */; };
 		70CCCDAA23DE8D3E0044C6A7 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 70CCCDA523DE8D3E0044C6A7 /* home.png */; };
@@ -87,7 +87,7 @@
 		707897BB23D54115009BF57A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		707897C223D541E6009BF57A /* HBOCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBOCheckbox.swift; sourceTree = "<group>"; };
 		70B18C5A23DE4C7900AD443E /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		70C02CFE23E2868600CF691B /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		70C02CFE23E2868600CF691B /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		70C02D0023E2880900CF691B /* HBOTextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HBOTextFieldExtension.swift; sourceTree = "<group>"; };
 		70C02D0223E29EB000CF691B /* TransitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		70CCCDA523DE8D3E0044C6A7 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 		70C02CFD23E2866300CF691B /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				70C02CFE23E2868600CF691B /* ViewController+Extension.swift */,
+				70C02CFE23E2868600CF691B /* ViewControllerExtension.swift */,
 				70C02D0023E2880900CF691B /* HBOTextFieldExtension.swift */,
 			);
 			path = extensions;
@@ -560,7 +560,7 @@
 			files = (
 				70590C1423CB81CB0072208C /* RegisterViewController.swift in Sources */,
 				702CEB0B23E09AE5006146EA /* DatabaseManager.swift in Sources */,
-				70C02CFF23E2868600CF691B /* ViewController+Extension.swift in Sources */,
+				70C02CFF23E2868600CF691B /* ViewControllerExtension.swift in Sources */,
 				70C02D0123E2880900CF691B /* HBOTextFieldExtension.swift in Sources */,
 				70584EF523CCEF3C00FA48EA /* SignInViewController.swift in Sources */,
 				707897BF23D54115009BF57A /* MainViewController.swift in Sources */,

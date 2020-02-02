@@ -45,13 +45,11 @@ class SignInViewController: UIViewController {
         subscriptionButton.layer.borderWidth = 2
         subscriptionButton.layer.borderColor = UIColor.gray.cgColor
         
-        txtEmailAddress.layer.cornerRadius = 10
-        txtEmailAddress.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        txtEmailAddress.roundCorners([.topLeft, .topRight], radius: 10)
         txtEmailAddress.setLeftPaddingPoints(10)
         txtEmailAddress.setRightPaddingPoints(10)
         
-        txtPassword.layer.cornerRadius = 10
-        txtPassword.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        txtPassword.roundCorners([.bottomLeft, .bottomRight], radius: 10)
         txtPassword.setLeftPaddingPoints(10)
         txtPassword.setRightPaddingPoints(10)
     }

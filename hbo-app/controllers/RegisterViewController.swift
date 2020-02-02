@@ -34,32 +34,27 @@ class RegisterViewController: UIViewController {
     }
     
     private func configureUIStyles() {
-        txtFirstName.layer.cornerRadius = 10
-        txtFirstName.layer.maskedCorners = .layerMinXMinYCorner
+        txtFirstName.roundCorners(.topLeft, radius: 10)
         txtFirstName.setLeftPaddingPoints(10)
         txtFirstName.setRightPaddingPoints(10)
         
-        txtLastName.layer.cornerRadius = 10
-        txtLastName.layer.maskedCorners = .layerMaxXMinYCorner
+        txtLastName.roundCorners(.topRight, radius: 10)
         txtLastName.setLeftPaddingPoints(10)
         txtLastName.setRightPaddingPoints(10)
         
-        txtEmailAddress.layer.cornerRadius = 10
-        txtEmailAddress.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        txtEmailAddress.roundCorners([.bottomLeft, .bottomRight], radius: 10)
         txtEmailAddress.setLeftPaddingPoints(10)
         txtEmailAddress.setRightPaddingPoints(10)
         
-        txtPassword.layer.cornerRadius = 10
-        txtPassword.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        txtPassword.roundCorners([.topLeft, .topRight], radius: 10)
         txtPassword.setLeftPaddingPoints(10)
         txtPassword.setRightPaddingPoints(10)
         
-        txtConfirmPassword.layer.cornerRadius = 10
-        txtConfirmPassword.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        txtConfirmPassword.roundCorners([.bottomLeft, .bottomRight], radius: 10)
         txtConfirmPassword.setLeftPaddingPoints(10)
         txtConfirmPassword.setRightPaddingPoints(10)
         
-        txtZipCode.layer.cornerRadius = CGFloat(10)
+        txtZipCode.roundCorners([.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 10)
         txtZipCode.setLeftPaddingPoints(10)
         txtZipCode.setRightPaddingPoints(10)
     }
