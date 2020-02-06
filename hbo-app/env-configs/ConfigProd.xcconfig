@@ -1,0 +1,19 @@
+//
+//  ConfigProd.xcconfig
+//  wiki-app
+//
+//  Created by Aravinda Rathnayake on 2/6/20.
+//  Copyright © 2020 Aravinda Rathnayake. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Pods/Target Support Files/Pods-hbo-app/Pods-hbo-app.release.xcconfig"
+
+HBO_APPLICATION_NAME=Prod
+HBO_APP_NAME = HBO Now
+HBO_APP_VERSION = 1.0
+HBO_APP_BUNDLE_ID = com.aravindakr95.hbo-app
+HBO_APP_ICON = AppIcon
+
