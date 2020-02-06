@@ -11,6 +11,7 @@ target 'hbo-app' do
     pod 'Firebase'
     pod 'Firebase/Firestore'
     pod 'SwiftyJSON'
+    pod 'Alamofire'
 
   target 'hbo-appTests' do
     inherit! :search_paths

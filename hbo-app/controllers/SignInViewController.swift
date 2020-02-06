@@ -96,7 +96,7 @@ class SignInViewController: UIViewController {
                 self.present(self.alert, animated: true, completion: nil)
             } else {
                 UserDefaults.standard.set(true, forKey: "isAuthorized")
-                self.transition(identifier: "homeVC")
+                self.transition(identifier: "searchMoviesVC")
             }
             
             self.btnSignIn.hideLoading()
@@ -122,7 +122,7 @@ class SignInViewController: UIViewController {
                 self.present(self.alert, animated: true, completion: nil)
             } else {
                 
-                self.transition(identifier: "homeVC")
+                self.transition(identifier: "searchMoviesVC")
             }
         }
     }
