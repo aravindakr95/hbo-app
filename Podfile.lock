@@ -286,7 +286,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - Cosmos
   - Firebase
   - Firebase/Analytics
   - Firebase/Auth
@@ -298,7 +297,6 @@ SPEC REPOS:
     - abseil
     - Alamofire
     - BoringSSL-GRPC
-    - Cosmos
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -325,7 +323,6 @@ SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
-  Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   Firebase: 5d77105d9740a07ca6b16927ca971db7e860faaf
   FirebaseAnalytics: e83e64b1231dedcd9ddd4bdecd9bcfd6ba341679
   FirebaseAuth: ce45d7c5d46bed90159f3a73b6efbe8976ed3573
@@ -348,6 +345,6 @@ SPEC CHECKSUMS:
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: a6eece7def3631b9799ccd178d205534a289a599
+PODFILE CHECKSUM: 38ee16bfba04869e915f64fe3dbc9bd4bb835213
 
 COCOAPODS: 1.8.4
