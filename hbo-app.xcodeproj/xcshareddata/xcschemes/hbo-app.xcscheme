@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "70590C0D23CB81CB0072208C"
-               BuildableName = "hbo-app.app"
+               BuildableName = "HBO Now.app"
                BlueprintName = "hbo-app"
                ReferencedContainer = "container:hbo-app.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "70590C0D23CB81CB0072208C"
-            BuildableName = "hbo-app.app"
+            BuildableName = "HBO Now.app"
             BlueprintName = "hbo-app"
             ReferencedContainer = "container:hbo-app.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "70590C0D23CB81CB0072208C"
-            BuildableName = "hbo-app.app"
+            BuildableName = "HBO Now.app"
             BlueprintName = "hbo-app"
             ReferencedContainer = "container:hbo-app.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "70590C0D23CB81CB0072208C"
-            BuildableName = "hbo-app.app"
+            BuildableName = "HBO Now.app"
             BlueprintName = "hbo-app"
             ReferencedContainer = "container:hbo-app.xcodeproj">
          </BuildableReference>
